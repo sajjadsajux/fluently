@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Loader from "../../Utils/loader";
+import axios from "axios";
 
 const AddTutorials = () => {
   const { user } = use(AuthContext);
@@ -29,8 +30,17 @@ const AddTutorials = () => {
 
     console.log("Tutorial submitted:", newTutorial);
 
-    // TODO: Send to your backend / Firebase
-    // fetch('/api/tutorials', { method: 'POST', ... })
+    // fetching api
+    axios
+      .post(`${import.meta.env.VITE_LOCAL_URL}/tutorials`, newTutorial)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Added");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

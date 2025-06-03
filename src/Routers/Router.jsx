@@ -28,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/find-tutors",
         Component: FindTutors,
+        loader: () => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials`),
       },
       {
         path: "/add-tutorials",
