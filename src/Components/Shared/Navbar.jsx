@@ -1,6 +1,8 @@
 import React, { use } from "react";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { NavLink } from "react-router";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -32,15 +34,18 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/allplants">All Plants</NavLink>
+        <NavLink to="/find-tutors">Find tutors</NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink to="/addplants">Add Plant</NavLink>
+            <NavLink to="/add-tutorials">Add Tutorials</NavLink>
           </li>
           <li>
-            <NavLink to="/myplants">My Plants</NavLink>
+            <NavLink to="/my-tutorials">My Tutorials</NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-booked-tutors">My Booked Tutors</NavLink>
           </li>
         </>
       )}
@@ -61,7 +66,7 @@ const Navbar = () => {
             </ul>
           </div>
           <h3 className="text-xl pl-0 md:text-2xl lg:text-3xl font-bold ">
-            Plant<span className="text-primary">Tick</span>
+            <span className="text-primary">Fluently</span>
           </h3>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -70,7 +75,7 @@ const Navbar = () => {
         <div className="navbar-end gap-2">
           {user ? (
             <div className="flex gap-2 items-center justify-center">
-              <img className="h-10 w-10 rounded-2xl object-cover " src={user.photoURL} alt="" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="left" />
+              <img className=" h-10 w-10 rounded-2xl object-cover " src={user.photoURL} alt="" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="left" />
               <Tooltip id="my-tooltip" />
               <button onClick={handleLogOut} className="hover:bg-red-600 btn btn-primary btn-sm md:btn-md rounded-2xl text-sm md:text-base ml-1  mr-3 md:mr-0">
                 LogOut

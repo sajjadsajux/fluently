@@ -1,7 +1,8 @@
 import React, { use } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { Bounce, toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { signInUser, signInGoogle } = use(AuthContext);

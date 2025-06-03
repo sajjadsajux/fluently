@@ -1,7 +1,8 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Bounce, toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const { signUpUser, setUser, updateUser } = use(AuthContext);
