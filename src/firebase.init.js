@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAS5TKULMSyeAu3GZmHq84gUvsJ8v6juMU",
-  authDomain: "fluently-web.firebaseapp.com",
-  projectId: "fluently-web",
-  storageBucket: "fluently-web.firebasestorage.app",
-  messagingSenderId: "681599707951",
-  appId: "1:681599707951:web:a331788f293ad472ed8fda",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
