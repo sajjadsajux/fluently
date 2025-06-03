@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const FindTutors = () => {
   const tutors = useLoaderData();
@@ -28,7 +28,9 @@ const FindTutors = () => {
                   </p>
                   <p className="text-sm ">{tutor.description?.slice(0, 100)}...</p>
                   <div className="card-actions justify-end mt-4">
-                    <button className="btn btn-sm btn-outline btn-primary">See tutor details</button>
+                    <Link to={`/tutor/${tutor._id}`} className="btn btn-sm btn-outline btn-primary">
+                      See tutor details
+                    </Link>
                   </div>
                 </div>
               </div>

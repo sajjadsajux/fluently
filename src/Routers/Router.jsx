@@ -7,6 +7,8 @@ import Register from "../Pages/Register/Register";
 import FindTutors from "../Pages/FindTutors/FindTutors";
 import AddTutorials from "../Pages/AddTutorials/AddTutorials";
 import PrivateRoute from "../Routes/PrivateRoute";
+import Loader from "../Utils/loader";
+import TutorDetails from "../Pages/FindTutors/TutorDetails";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,17 @@ const router = createBrowserRouter([
         path: "/find-tutors",
         Component: FindTutors,
         loader: () => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials`),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/tutor/:id",
+        element: (
+          <PrivateRoute>
+            <TutorDetails></TutorDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutor/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/add-tutorials",
