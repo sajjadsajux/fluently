@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const MyTutorials = () => {
   const loadedmyTutorials = useLoaderData();
   const [myTutorials, setMyTutorials] = useState(loadedmyTutorials);
   console.log(myTutorials);
 
-  const handleUpdate = (id) => {};
   const handleDelete = (id) => {
     axios
       .delete(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${id}`)
@@ -48,9 +47,9 @@ const MyTutorials = () => {
                 </div>
 
                 <div className="flex gap-3 mt-4">
-                  <button onClick={() => handleUpdate(tutorial._id)} className="btn btn-sm btn-info">
+                  <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-info">
                     Update
-                  </button>
+                  </Link>
                   <button onClick={() => handleDelete(tutorial._id)} className="btn btn-sm btn-error">
                     Delete
                   </button>
