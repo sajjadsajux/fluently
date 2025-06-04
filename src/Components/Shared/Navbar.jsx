@@ -42,7 +42,7 @@ const Navbar = () => {
             <NavLink to="/add-tutorials">Add Tutorials</NavLink>
           </li>
           <li>
-            <NavLink to="/my-tutorials">My Tutorials</NavLink>
+            <NavLink to={`/my-tutorials/${user.email}`}>My Tutorials</NavLink>
           </li>
           <li>
             <NavLink to={`/my-booked-tutors/${user.email}`}>My Booked Tutors</NavLink>

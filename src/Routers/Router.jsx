@@ -64,12 +64,14 @@ const router = createBrowserRouter([
         hydrateFallbackElement: <Loader></Loader>,
       },
       {
-        path: "/my-tutorials",
+        path: "/my-tutorials/:email",
         element: (
           <PrivateRoute>
             <MyTutorials></MyTutorials>
           </PrivateRoute>
         ),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${params.email}`),
+        hydrateFallbackElement: <Loader></Loader>,
       },
     ],
   },

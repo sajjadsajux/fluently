@@ -11,3 +11,7 @@
   --color-primary: #3c2166;
   --color-secondary: #f23f81;
 }
+
+a.active {
+  @apply bg-primary px-1 text-white;
+}

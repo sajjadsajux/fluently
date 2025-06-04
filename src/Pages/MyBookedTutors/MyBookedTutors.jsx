@@ -13,7 +13,7 @@ const MyBookedTutors = () => {
       .patch(`${import.meta.env.VITE_LOCAL_URL}/review/${id}`)
       .then((res) => {
         console.log(res);
-        if (res.data.success) {
+        if (res.data.tutorialUpdate.modifiedCount || res.data.bookedUpdate.modifiedCount) {
           alert("Updated");
           const updatedTutors = bookedTutors.map((tutor) => {
             if (tutor.tutorId === id) {
