@@ -1,9 +1,10 @@
+import axios from "axios";
 import React from "react";
 import { useLoaderData } from "react-router";
 
 const UpdateTutorials = () => {
   const prevData = useLoaderData();
-  console.log(prevData);
+  // console.log(prevData);
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -14,20 +15,32 @@ const UpdateTutorials = () => {
     const language = form.language.value;
     const price = form.price.value;
     const description = form.description.value;
+    const review = form.review.value;
 
-    const newTutorial = {
+    const updatedTutorial = {
       name,
       email,
       image,
       language,
       price,
       description,
-      review: 0,
+      review,
     };
 
-    console.log("Tutorial submitted:", newTutorial);
+    console.log("Tutorial submitted:", updatedTutorial);
 
     // fetching api
+    axios
+      .patch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${prevData._id}`, updatedTutorial)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.bookedResult.modifiedCount && res.data.tutorialResult.modifiedCount) {
+          alert("updated");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -44,28 +57,28 @@ const UpdateTutorials = () => {
           </div>
           <div>
             <label className="label">Image URL</label>
-            <input type="url" name="image" required placeholder="Enter image URL" className="input input-bordered w-full" />
+            <input type="url" name="image" required defaultValue={prevData.image} placeholder="Enter image URL" className="input input-bordered w-full" />
           </div>
           <div>
             <label className="label">Language</label>
-            <input type="text" name="language" required placeholder="E.g., Spanish, Math, JavaScript" className="input input-bordered w-full" />
+            <input type="text" name="language" required defaultValue={prevData.language} placeholder="E.g., Spanish, Math, JavaScript" className="input input-bordered w-full" />
           </div>
           <div>
             <label className="label">Price ($)</label>
-            <input type="number" name="price" required placeholder="Enter price" className="input input-bordered w-full" />
+            <input type="number" name="price" required defaultValue={prevData.price} placeholder="Enter price" className="input input-bordered w-full" />
           </div>
           <div>
             <label className="label">Review (🌟)</label>
-            <input type="number" name="price" defaultValue={prevData.review} readOnly placeholder="Enter price" className="input input-bordered w-full" />
+            <input type="number" name="review" defaultValue={prevData.review} readOnly placeholder="Enter price" className="input input-bordered w-full" />
           </div>
         </div>
         <div>
           <label className="label">Description</label>
-          <textarea name="description" required rows="4" placeholder="Describe the tutorial" className="textarea textarea-bordered w-full"></textarea>
+          <textarea name="description" required defaultValue={prevData.description} rows="4" placeholder="Describe the tutorial" className="textarea textarea-bordered w-full"></textarea>
         </div>
         <div>
           <button type="submit" className="btn btn-primary w-full">
-            Add Tutorial
+            Update
           </button>
         </div>
       </form>
