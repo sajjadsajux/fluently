@@ -10,6 +10,7 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import Loader from "../Utils/loader";
 import TutorDetails from "../Pages/FindTutors/TutorDetails";
 import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
+import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors/${params.email}`),
         hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/my-tutorials",
+        element: (
+          <PrivateRoute>
+            <MyTutorials></MyTutorials>
+          </PrivateRoute>
+        ),
       },
     ],
   },

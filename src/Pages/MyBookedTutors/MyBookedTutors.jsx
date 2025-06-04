@@ -1,9 +1,33 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 
 const MyBookedTutors = () => {
-  const bookedTutors = useLoaderData();
+  const loadedTutors = useLoaderData();
+  const [bookedTutors, setBookedTutors] = useState(loadedTutors);
+
   console.log(bookedTutors);
+
+  const handleReview = (id) => {
+    axios
+      .patch(`${import.meta.env.VITE_LOCAL_URL}/review/${id}`)
+      .then((res) => {
+        console.log(res);
+        if (res.data.success) {
+          alert("Updated");
+          const updatedTutors = bookedTutors.map((tutor) => {
+            if (tutor.tutorId === id) {
+              return { ...tutor, review: tutor.review + 1 };
+            }
+            return tutor;
+          });
+          setBookedTutors(updatedTutors);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       <h2 className="text-3xl font-bold text-center mb-8 text-primary">My Booked Tutors</h2>
@@ -35,7 +59,9 @@ const MyBookedTutors = () => {
                   <strong>Tutor Email:</strong> {tutor.tutorEmail}
                 </p>
                 <div className="card-actions justify-end mt-4">
-                  <button className="btn btn-sm btn-outline btn-secondary">Review</button>
+                  <button onClick={() => handleReview(tutor.tutorId)} className="btn btn-sm btn-outline btn-secondary">
+                    Review
+                  </button>
                 </div>
               </div>
             </div>
