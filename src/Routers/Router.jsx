@@ -53,12 +53,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-booked-tutors",
+        path: "/my-booked-tutors/:email",
         element: (
           <PrivateRoute>
             <MyBookedTutors></MyBookedTutors>
           </PrivateRoute>
         ),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors/${params.email}`),
+        hydrateFallbackElement: <Loader></Loader>,
       },
     ],
   },
