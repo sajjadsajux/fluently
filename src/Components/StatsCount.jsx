@@ -38,19 +38,19 @@ const StatsCount = () => {
         <div className="grid grid-cols-2 row-gap-8 md:grid-cols-4">
           <div className="text-center md:border-r">
             <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.tutors}</h6>
-            <p className="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">Experienced Tutors</p>
+            <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Experienced Tutors</p>
           </div>
           <div className="text-center md:border-r">
             <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.reviews}</h6>
-            <p className="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">Total Reviews</p>
+            <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Total Reviews</p>
           </div>
           <div className="text-center md:border-r">
             <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.languages}</h6>
-            <p className="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">Languages</p>
+            <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Languages</p>
           </div>
           <div className="text-center">
             <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{user}</h6>
-            <p className="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">Users</p>
+            <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Users</p>
           </div>
         </div>
       </div>

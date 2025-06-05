@@ -21,6 +21,12 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         const user = result.user;
+        const userDB = {
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          image: user.photoURL,
+        };
         toast.success(`Welcome back, ${user.displayName}, you've successfully logged in!`, {
           position: "top-right",
           autoClose: 5000,
@@ -34,7 +40,7 @@ const Login = () => {
         });
 
         axios
-          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, user)
+          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, userDB)
           .then((res) => {
             console.log(res.data);
           })
@@ -65,6 +71,13 @@ const Login = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
+        const userDB = {
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          image: user.photoURL,
+        };
+
         toast.success(`Welcome ${user.displayName}, you're logged in with Google!`, {
           position: "top-right",
           autoClose: 5000,
@@ -77,7 +90,7 @@ const Login = () => {
           transition: Bounce,
         });
         axios
-          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, user)
+          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, userDB)
           .then((res) => {
             console.log(res.data);
           })

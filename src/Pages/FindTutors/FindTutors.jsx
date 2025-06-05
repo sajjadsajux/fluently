@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const FindTutors = () => {
   // const tutors = useLoaderData();
@@ -8,13 +8,20 @@ const FindTutors = () => {
   const [tutors, setTutors] = useState([]);
 
   const [search, setSearch] = useState("");
+  const location = useLocation();
+
+  const params = new URLSearchParams(location.search);
+  const category = params.get("category") || "";
+
   console.log(search);
   useEffect(() => {
+    const query = search || category;
+
     axios
-      .get(`${import.meta.env.VITE_LOCAL_URL}/tutorials?searchQuery=${search}`)
+      .get(`${import.meta.env.VITE_LOCAL_URL}/tutorials?searchQuery=${query}`)
       .then((res) => setTutors(res.data))
       .catch((err) => console.log(err));
-  }, [search]);
+  }, [search, category]);
 
   return (
     <>
