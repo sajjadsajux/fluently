@@ -7,12 +7,25 @@ const StatsCount = () => {
     languages: 0,
     reviews: 0,
   });
+  const [user, setUser] = useState(0);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_LOCAL_URL}/stats`)
       .then((res) => {
         console.log(res.data);
         setStats(res.data);
+      })
+      .catch((err) => {
+        console.error("Error loading stats:", err);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_LOCAL_URL}/users`)
+      .then((res) => {
+        console.log(res.data.totalUsers);
+        setUser(res.data);
       })
       .catch((err) => {
         console.error("Error loading stats:", err);
@@ -36,7 +49,7 @@ const StatsCount = () => {
             <p className="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">Languages</p>
           </div>
           <div className="text-center">
-            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.tutors}</h6>
+            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{user}</h6>
             <p className="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">Users</p>
           </div>
         </div>

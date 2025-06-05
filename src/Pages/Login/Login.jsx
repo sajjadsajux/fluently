@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { Bounce, toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
 
 const Login = () => {
   const { signInUser, signInGoogle } = use(AuthContext);
@@ -18,6 +19,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
+        console.log(result);
         const user = result.user;
         toast.success(`Welcome back, ${user.displayName}, you've successfully logged in!`, {
           position: "top-right",
@@ -30,10 +32,21 @@ const Login = () => {
           theme: "light",
           transition: Bounce,
         });
+
+        axios
+          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, user)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         console.log(error.code);
+
         toast.error("Incorrect email or password. Please try again.", {
           position: "top-right",
           autoClose: 5000,
@@ -63,6 +76,15 @@ const Login = () => {
           theme: "light",
           transition: Bounce,
         });
+        axios
+          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, user)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
