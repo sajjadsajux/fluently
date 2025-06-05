@@ -1,13 +1,37 @@
-import React from "react";
-import { Link, useLoaderData } from "react-router";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const FindTutors = () => {
-  const tutors = useLoaderData();
-  console.log(tutors);
+  // const tutors = useLoaderData();
+  // console.log(tutors);
+  const [tutors, setTutors] = useState([]);
+
+  const [search, setSearch] = useState("");
+  console.log(search);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_LOCAL_URL}/tutorials?searchQuery=${search}`)
+      .then((res) => setTutors(res.data))
+      .catch((err) => console.log(err));
+  }, [search]);
+
   return (
     <>
       <div className="container mx-auto py-10">
         <h2 className="text-3xl font-bold text-center mb-8 text-primary">Find Your Perfect Tutor</h2>
+
+        <div className="flex justify-center my-10">
+          <label className="input">
+            <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input type="search" required placeholder="Search tutors" onChange={(e) => setSearch(e.target.value)} />
+          </label>
+        </div>
 
         {tutors.length === 0 ? (
           <p className="text-center text-gray-500">No tutors found.</p>
