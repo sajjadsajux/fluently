@@ -12,6 +12,7 @@ import TutorDetails from "../Pages/FindTutors/TutorDetails";
 import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
 import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import UpdateTutorials from "../Pages/MyTutorials/UpdateTutorials";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
         hydrateFallbackElement: <Loader></Loader>,
       },
     ],
+  },
+  {
+    path: "*",
+    Component: ErrorPage,
   },
 ]);
 
