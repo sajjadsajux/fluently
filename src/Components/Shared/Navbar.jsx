@@ -1,12 +1,15 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { NavLink } from "react-router";
 import { Tooltip } from "react-tooltip";
+import { MdOutlineLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   console.log(user);
+  const [isDark, setIsDark] = useState(false);
 
   const handleLogOut = () => {
     signOutUser()
@@ -52,6 +55,19 @@ const Navbar = () => {
       )}
     </>
   );
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setIsDark(savedTheme === "dark");
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
+  const handleToggle = (e) => {
+    const dark = e.target.checked;
+    setIsDark(dark);
+    const newTheme = dark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
   return (
     <div>
       <div className="navbar bg-base-100 ">
@@ -94,27 +110,9 @@ const Navbar = () => {
           )}
           <div className="ml-[2px] md:ml-1">
             <label className="toggle text-base-content">
-              <input type="checkbox" value="dark" className="theme-controller" />
-
-              <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <path d="M12 2v2"></path>
-                  <path d="M12 20v2"></path>
-                  <path d="m4.93 4.93 1.41 1.41"></path>
-                  <path d="m17.66 17.66 1.41 1.41"></path>
-                  <path d="M2 12h2"></path>
-                  <path d="M20 12h2"></path>
-                  <path d="m6.34 17.66-1.41 1.41"></path>
-                  <path d="m19.07 4.93-1.41 1.41"></path>
-                </g>
-              </svg>
-
-              <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-                </g>
-              </svg>
+              <input type="checkbox" value="dark" className="theme-controller" onChange={handleToggle} checked={isDark} />
+              <MdOutlineLightMode />
+              <MdDarkMode />
             </label>
           </div>
         </div>
