@@ -29,7 +29,7 @@ const MyBookedTutors = () => {
       });
   };
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="max-w-6xl mx-auto px-4 py-10 lg:min-h-[100vh]">
       <h2 className="text-3xl font-bold text-center mb-8 text-primary">My Booked Tutors</h2>
 
       {bookedTutors.length === 0 ? (

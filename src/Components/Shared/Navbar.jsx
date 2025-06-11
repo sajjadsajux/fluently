@@ -1,13 +1,14 @@
 import React, { use, useEffect, useState } from "react";
 import { Bounce, toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthContext";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { Tooltip } from "react-tooltip";
 import { MdOutlineLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
   const [isDark, setIsDark] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -27,6 +28,7 @@ const Navbar = () => {
           theme: "light",
           transition: Bounce,
         });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.code);

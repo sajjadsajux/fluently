@@ -21,7 +21,7 @@ const MyTutorials = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="container mx-auto my-6 p-4">
+    <div className="container mx-auto my-6 p-4 lg:min-h-[100vh]">
       <h2 className="text-2xl font-bold mb-6 text-center">My Tutorials</h2>
 
       {myTutorials.length === 0 ? (

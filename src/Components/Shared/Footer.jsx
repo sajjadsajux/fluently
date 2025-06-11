@@ -1,96 +1,130 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaSquareThreads, FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
+  const { user } = use(AuthContext);
+
   return (
-    <footer className="bg-primary text-primary-content px-4 sm:px-6 lg:px-8 divide-y">
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between py-10 gap-10">
-        {/* Logo Section */}
-        <div className="flex justify-center lg:justify-start items-center">
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">
-            <span className="inline-block bg-white text-primary px-3 py-1 rounded-2xl">Plant</span>
-            <span className="text-white ml-2">Tick</span>
-          </h3>
-        </div>
-
-        {/* Links Section */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 text-sm flex-1">
-          {/* Product */}
-          <div className="space-y-3">
-            <h3 className="tracking-wide uppercase text-green-200">Navigations</h3>
-            <ul className="space-y-1">
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/allplants">All Plants</NavLink>
-              </li>
-              {user && (
-                <>
-                  <li>
-                    <NavLink to="/addplants">Add Plant</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/myplants">My Plants</NavLink>
-                  </li>
-                </>
-              )}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="space-y-3">
-            <h3 className="tracking-wide uppercase text-green-200">Company</h3>
-            <ul className="space-y-1">
-              <li>
-                <NavLink to="/privacypolicy">Privacy Policy</NavLink>
-              </li>
-              <li>
-                <NavLink to="/terms-and-conditions">Terms & Conditions</NavLink>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-3">
-            <h3 className="uppercase text-green-200">Contact</h3>
-            <ul className="space-y-1">
-              <li>
-                Email:{" "}
-                <a href="mailto:support@planttick.com" className="hover:underline">
-                  supportmail@planttick.com
-                </a>
-              </li>
-              <li>
-                Phone:{" "}
-                <a href="tel:+880123456789" className="hover:underline">
-                  +880 1629202095
-                </a>
-              </li>
-              <li>Address: Sreemangal, Sylhet, Bangladesh</li>
-            </ul>
+    <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8 bg-primary text-white">
+      <div className="grid gap-12 row-gap-10 mb-12 sm:grid-cols-2 lg:grid-cols-4 container mx-auto">
+        {/* Company Logo & Description */}
+        <div>
+          <h2 className="text-3xl font-bold tracking-wide">
+            Fluent<span className="text-secondary">ly</span>
+          </h2>
+          <div className="mt-6 max-w-sm">
+            <p className="text-sm">Learn and speak the world’s languages with ease</p>
+            <p className="mt-4 text-sm">Fluently is a modern online platform where users can easily connect with expert language guides. Whether you're a beginner or brushing up your fluency, Fluently helps you learn and speak the world’s languages with ease.</p>
           </div>
         </div>
 
-        {/* Social Media Section */}
-        <div className="space-y-3 text-center lg:text-right">
-          <h3 className="uppercase text-green-200">Social media</h3>
-          <div className="flex justify-center lg:justify-end space-x-4">
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+        {/* Navigation Links */}
+        <div>
+          <h4 className="mb-4 text-md font-semibold">Navigation</h4>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <NavLink to="/" className="hover:underline">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/find-tutors" className="hover:underline">
+                Browse Tutors
+              </NavLink>
+            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink to="/add-tutorials" className="hover:underline">
+                    Add Tutorials
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/my-tutorials/${user.email}`} className="hover:underline">
+                    My Tutorials
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/my-booked-tutors/${user.email}`} className="hover:underline">
+                    My Booked Tutors
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+
+        {/* Contacts */}
+        <div>
+          <h4 className="mb-4 text-md font-semibold">Contacts</h4>
+          <ul className="space-y-2 text-sm">
+            <li className="flex">
+              <span className="mr-2">Phone:</span>
+              <a href="tel:01629202095" className="hover:underline">
+                01629202095
+              </a>
+            </li>
+            <li className="flex">
+              <span className="mr-2">Email:</span>
+              <a href="mailto:info@fluently.com" className="hover:underline">
+                info@fluently.com
+              </a>
+            </li>
+            <li className="flex">
+              <span className="mr-2">Address:</span>
+              <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                312 Lovely Street, NY
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Social */}
+        <div>
+          <h4 className="mb-4 text-md font-semibold">Social</h4>
+          <div className="flex items-center space-x-4">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
               <FaFacebook size={24} />
             </a>
-            <a href="https://x.com/home" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
-              <FaXTwitter size={24} />
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
               <FaInstagram size={24} />
             </a>
+            <a href="https://www.x.com/" target="_blank" rel="noopener noreferrer">
+              <FaSquareXTwitter size={24} />
+            </a>
+            <a href="https://www.threads.com/" target="_blank" rel="noopener noreferrer">
+              <FaSquareThreads size={24} />
+            </a>
           </div>
+          <p className="mt-4 text-sm">Follow us on social media to get the latest updates, tips, and news. Join our community and never miss a moment!</p>
         </div>
       </div>
 
-      <div className="py-6 text-center text-green-300 text-sm">© 2025 PlantTick Team. All rights reserved.</div>
-    </footer>
+      {/* Footer Bottom Bar */}
+      <div className="flex flex-col-reverse items-center justify-between pt-6 pb-10 border-t border-white/30 lg:flex-row text-sm container mx-auto">
+        <p className="mt-4 lg:mt-0">© Copyright 2025 Fluently All rights reserved.</p>
+        <ul className="flex flex-wrap justify-center space-x-4">
+          <li>
+            <a href="/" className="hover:underline">
+              F.A.Q
+            </a>
+          </li>
+          <li>
+            <a href="/" className="hover:underline">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a href="/" className="hover:underline">
+              Terms & Conditions
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

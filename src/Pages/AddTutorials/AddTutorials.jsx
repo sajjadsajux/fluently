@@ -44,7 +44,7 @@ const AddTutorials = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <div className="max-w-4xl mx-auto px-4 py-10 lg:min-h-[100vh]">
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">Add New Tutorial</h2>
       <form onSubmit={handleAddTutorial} className="space-y-6 bg-base-200 p-6 rounded-xl shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
