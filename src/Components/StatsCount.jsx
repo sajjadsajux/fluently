@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 const StatsCount = () => {
   const [stats, setStats] = useState({
@@ -37,20 +38,28 @@ const StatsCount = () => {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid grid-cols-2 row-gap-8 md:grid-cols-4">
           <div className="text-center md:border-r">
-            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.tutors}</h6>
+            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-secondary">
+              <CountUp end={stats.tutors} duration={10} />
+            </h6>
             <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Experienced Tutors</p>
           </div>
           <div className="text-center md:border-r">
-            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.reviews}</h6>
+            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-secondary">
+              <CountUp end={stats.reviews} duration={10} />
+            </h6>
             <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Total Reviews</p>
           </div>
           <div className="text-center md:border-r">
-            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{stats.languages}</h6>
+            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-secondary">
+              <CountUp end={stats.languages} duration={10} />
+            </h6>
             <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Languages</p>
           </div>
           <div className="text-center">
-            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl">{user}</h6>
-            <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Users</p>
+            <h6 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-secondary">
+              <CountUp end={user} duration={10} />
+            </h6>
+            <p className="text-sm font-medium tracking-widest  uppercase lg:text-base">Total Users</p>
           </div>
         </div>
       </div>

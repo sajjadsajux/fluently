@@ -73,7 +73,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 ">
+      <div className="navbar bg-base-100 my-2">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden pl-0 pr-2">
@@ -86,7 +86,9 @@ const Navbar = () => {
             </ul>
           </div>
           <h3 className="text-xl pl-0 md:text-2xl lg:text-3xl font-bold ">
-            <span className="text-primary">Fluently</span>
+            <span className="text-primary">
+              Fluent<span className="text-secondary">ly</span>
+            </span>
           </h3>
         </div>
         <div className="navbar-center hidden lg:flex">

@@ -3,15 +3,31 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #3c2166;
-  --color-secondary: #f23f81;
+  --color-primary: #064789;
+  --color-secondary: #ff5400;
 }
 @plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #3c2166;
-  --color-secondary: #f23f81;
+  --color-primary: #4f9ec4;
+  --color-secondary: #ff5400;
 }
 
 a.active {
   @apply bg-primary px-1 text-white;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

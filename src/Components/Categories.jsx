@@ -19,8 +19,12 @@ const Categories = () => {
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-3xl font-semibold mb-8 text-center  ">Language Categories</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <h2 className="text-4xl font-bold  mb-4 text-center  ">Language Categories</h2>
+        <div className="w-24 h-1 bg-primary mx-auto"></div>
+
+        <p className="mt-4 text-lg opacity-80 text-center">Hear from those who've experienced our platform</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
           {categories.map((cat) => (
             <div
               key={cat.id}

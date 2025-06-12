@@ -21,8 +21,8 @@ const MyTutorials = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="container mx-auto my-6 p-4 lg:min-h-[100vh]">
-      <h2 className="text-2xl font-bold mb-6 text-center">My Tutorials</h2>
+    <div className="container mx-auto my-6 p-4 min-h-[100vh]">
+      <h2 className="text-3xl font-bold mb-6 text-center text-primary">My Tutorials</h2>
 
       {myTutorials.length === 0 ? (
         <p className="text-center text-gray-500">No tutorials found.</p>

@@ -29,8 +29,11 @@ const WhyChooseUs = () => {
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-center mb-10">Why Choose Us?</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-4xl font-bold text-center ">Why Choose Us?</h2>
+        <div className="w-24 h-1 bg-primary mx-auto my-5"></div>
+        <p className="mt-4 text-lg opacity-80 text-center">Here’s why students love learning on our platform.</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
           {features.map((item, index) => (
             <div key={index} className="card bg-base-100 shadow-md border dark:border-gray-700 p-6">
               <div className="flex justify-center mb-4">{item.icon}</div>
