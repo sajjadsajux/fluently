@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
+import Swal from "sweetalert2";
 
 const MyTutorials = () => {
   const loadedmyTutorials = useLoaderData();
@@ -9,14 +10,30 @@ const MyTutorials = () => {
   console.log(myTutorials);
 
   const handleDelete = (id) => {
-    axios
-      .delete(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${id}`)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.bookedResult.deletedCount || res.data.tutorialResult.deletedCount) {
-          // alert("Deleted successfully");
-          const remaining = myTutorials.filter((tuto) => tuto._id !== id);
-          setMyTutorials(remaining);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          axios.delete(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${id}`).then((res) => {
+            console.log(res.data);
+            if (res.data.bookedResult.deletedCount || res.data.tutorialResult.deletedCount) {
+              // alert("Deleted successfully");
+              const remaining = myTutorials.filter((tuto) => tuto._id !== id);
+              setMyTutorials(remaining);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Tutorial deleted successfully!",
+                icon: "success",
+              });
+            }
+          });
         }
       })
       .catch((err) => console.log(err));

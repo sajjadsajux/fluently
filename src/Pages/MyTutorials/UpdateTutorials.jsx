@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useLoaderData } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
+import { toast, Zoom } from "react-toastify";
 
 const UpdateTutorials = () => {
   const prevData = useLoaderData();
@@ -35,8 +36,18 @@ const UpdateTutorials = () => {
       .patch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${prevData._id}`, updatedTutorial)
       .then((res) => {
         console.log(res.data);
-        if (res.data.bookedResult.modifiedCount && res.data.tutorialResult.modifiedCount) {
-          alert("updated");
+        if (res.data.bookedResult.modifiedCount || res.data.tutorialResult.modifiedCount) {
+          toast("Tutorial updated successfully!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Zoom,
+          });
         }
       })
       .catch((error) => {

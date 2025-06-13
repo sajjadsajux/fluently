@@ -13,7 +13,7 @@ const Categories = () => {
     { id: 6, title: "Japanese", logo: "https://flagcdn.com/w40/jp.png" },
     { id: 7, title: "Russian", logo: "https://flagcdn.com/w40/ru.png" },
     { id: 8, title: "Arabic", logo: "https://flagcdn.com/w40/sa.png" },
-    { id: 9, title: "Hindi", logo: "https://flagcdn.com/w40/in.png" },
+    { id: 9, title: "Bangla", logo: "https://flagcdn.com/w40/bd.png" },
   ];
 
   return (

@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import SetTitle from "../../Hooks/SetTitle";
+import { Flip, toast } from "react-toastify";
 
 const TutorDetails = () => {
   const tutor = useLoaderData();
@@ -28,7 +29,17 @@ const TutorDetails = () => {
       .post(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors`, bookedData)
       .then((res) => {
         if (res.data.insertedId) {
-          alert("Booked Successfully");
+          toast("You have successfully reserved this tutorial.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Flip,
+          });
         }
       })
       .catch((error) => {

@@ -3,6 +3,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import Loader from "../../Utils/loader";
 import axios from "axios";
 import SetTitle from "../../Hooks/SetTitle";
+import { Bounce, Slide, toast } from "react-toastify";
 
 const AddTutorials = () => {
   const { user } = use(AuthContext);
@@ -36,7 +37,17 @@ const AddTutorials = () => {
       .post(`${import.meta.env.VITE_LOCAL_URL}/tutorials`, newTutorial)
       .then((res) => {
         if (res.data.insertedId) {
-          alert("Added");
+          toast.success(`New tutorial for ${language ? language : ""} added successfully`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Slide,
+          });
         }
       })
       .catch((error) => {
