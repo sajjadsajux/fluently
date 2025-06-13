@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
+import SetTitle from "../../Hooks/SetTitle";
 
 const TutorDetails = () => {
   const tutor = useLoaderData();
@@ -34,6 +35,9 @@ const TutorDetails = () => {
         console.log(error);
       });
   };
+
+  SetTitle(`Tutor- ${tutor.name}`);
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       <div className="card lg:card-side bg-base-100 shadow-xl">

@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
+import SetTitle from "../../Hooks/SetTitle";
 
 const ErrorPage = () => {
+  SetTitle(`Error 404 ! Page Not Found`);
+
   return (
     <div className="">
       <section className="flex items-center h-[100vh] sm:p-16 bg-primary text-gray-100">

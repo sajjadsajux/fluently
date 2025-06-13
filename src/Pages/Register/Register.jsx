@@ -3,6 +3,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
 import { Bounce, toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import SetTitle from "../../Hooks/SetTitle";
 
 const Register = () => {
   const { signUpUser, setUser, updateUser } = use(AuthContext);
@@ -70,6 +71,7 @@ const Register = () => {
         });
       });
   };
+  SetTitle("Register || Fluently");
 
   return (
     <div className="lg:h-[100vh]    flex items-center justify-center container mx-auto  p-2">

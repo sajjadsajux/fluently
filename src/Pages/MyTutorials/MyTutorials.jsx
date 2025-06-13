@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
+import SetTitle from "../../Hooks/SetTitle";
 
 const MyTutorials = () => {
   const loadedmyTutorials = useLoaderData();
@@ -20,6 +21,8 @@ const MyTutorials = () => {
       })
       .catch((err) => console.log(err));
   };
+  SetTitle("My Tutorials");
+
   return (
     <div className="container mx-auto my-6 p-4 min-h-[100vh]">
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">My Tutorials</h2>

@@ -4,8 +4,11 @@ import StatsCount from "../../Components/StatsCount";
 import Categories from "../../Components/Categories";
 import Testimonials from "../../Components/Testimonials";
 import WhyChooseUs from "../../Components/WhyChooseUs";
+import SetTitle from "../../Hooks/SetTitle";
 
 const Home = () => {
+  SetTitle("Home");
+
   return (
     <>
       <section>

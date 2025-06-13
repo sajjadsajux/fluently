@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
+import SetTitle from "../../Hooks/SetTitle";
 
 const FindTutors = () => {
   // const tutors = useLoaderData();
@@ -23,6 +24,7 @@ const FindTutors = () => {
       .catch((err) => console.log(err));
   }, [search, category]);
 
+  SetTitle("All Tutors");
   return (
     <>
       <div className="container mx-auto py-10 min-h-[100vh]">

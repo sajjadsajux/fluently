@@ -9,7 +9,7 @@ import { MdDarkMode } from "react-icons/md";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
+  console.log(user?.photoURL);
   const [isDark, setIsDark] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -94,17 +94,17 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{linksNav}</ul>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-end gap-2 ">
           {user ? (
-            <div className="flex items-center gap-2 relative">
+            <div className="flex items-center gap-2 relative ">
               {/* Profile Image */}
-              <img className="h-10 w-10 rounded-2xl object-cover cursor-pointer" src={user.photoURL} alt={user.displayName} onClick={() => setShowDropdown(!showDropdown)} data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="left" />
+              <img className="h-10 w-10 rounded-2xl object-cover cursor-pointer" src={user?.photoURL} alt={user?.displayName} onClick={() => setShowDropdown(!showDropdown)} data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="left" />
               <Tooltip id="my-tooltip" />
 
               {/* Dropdown showing user name */}
               {showDropdown && (
                 <div className="absolute top-12 right-0 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-md z-50">
-                  <div className="px-4 py-2 text-sm text-gray-800 dark:text-gray-200">{user.displayName}</div>
+                  <div className="px-4 py-2 text-sm text-gray-800 dark:text-gray-200">{user?.displayName}</div>
                 </div>
               )}
 
@@ -124,7 +124,7 @@ const Navbar = () => {
             </div>
           )}
           {/* dark light mode */}
-          <div className="ml-[2px] md:ml-1">
+          <div className="ml-[24px] md:ml-1">
             <label className="toggle text-base-content">
               <input type="checkbox" value="dark" className="theme-controller" onChange={handleToggle} checked={isDark} />
               <MdOutlineLightMode />

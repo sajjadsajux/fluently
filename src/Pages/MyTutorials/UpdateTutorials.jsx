@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useLoaderData } from "react-router";
+import SetTitle from "../../Hooks/SetTitle";
 
 const UpdateTutorials = () => {
   const prevData = useLoaderData();
@@ -42,9 +43,11 @@ const UpdateTutorials = () => {
         console.log(error);
       });
   };
+  SetTitle(`Update Tutorial`);
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold mb-6 text-center text-primary">Add New Tutorial</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-primary">Update Tutorial</h2>
       <form onSubmit={handleUpdate} className="space-y-6 bg-base-200 p-6 rounded-xl shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>

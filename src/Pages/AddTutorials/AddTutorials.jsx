@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Loader from "../../Utils/loader";
 import axios from "axios";
+import SetTitle from "../../Hooks/SetTitle";
 
 const AddTutorials = () => {
   const { user } = use(AuthContext);
@@ -42,6 +43,7 @@ const AddTutorials = () => {
         console.log(error);
       });
   };
+  SetTitle("Add New Tutorial");
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 min-h-[100vh]">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
+import SetTitle from "../../Hooks/SetTitle";
 
 const MyBookedTutors = () => {
   const loadedTutors = useLoaderData();
@@ -28,8 +29,10 @@ const MyBookedTutors = () => {
         console.log(error);
       });
   };
+  SetTitle("My Booked Tutors");
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 lg:min-h-[100vh]">
+    <div className="max-w-6xl mx-auto px-4 py-10 min-h-[100vh]">
       <h2 className="text-3xl font-bold text-center mb-8 text-primary">My Booked Tutors</h2>
 
       {bookedTutors.length === 0 ? (

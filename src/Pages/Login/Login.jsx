@@ -4,6 +4,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { Bounce, toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import SetTitle from "../../Hooks/SetTitle";
 
 const Login = () => {
   const { signInUser, signInGoogle } = use(AuthContext);
@@ -115,6 +116,9 @@ const Login = () => {
         });
       });
   };
+
+  SetTitle("Login || Fluently");
+
   return (
     <div className="lg:h-[100vh]    flex items-center justify-center container mx-auto  p-2">
       <div className="container  mx-auto max-w-md p-8 space-y-3 rounded-xl bg-base-300 text-base-content shadow-md ">
