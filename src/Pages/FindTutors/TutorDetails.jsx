@@ -50,7 +50,7 @@ const TutorDetails = () => {
   SetTitle(`Tutor- ${tutor.name}`);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <div className="max-w-4xl mx-auto px-4 py-10 h-[100vh]">
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure className="lg:w-1/2">
           <img src={image} alt={tutor.name} className="w-full h-80 object-cover rounded-lg" />

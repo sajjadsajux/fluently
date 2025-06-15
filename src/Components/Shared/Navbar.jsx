@@ -9,7 +9,7 @@ import { MdDarkMode } from "react-icons/md";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
-  console.log(user?.photoURL);
+  console.log(user);
   const [isDark, setIsDark] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 

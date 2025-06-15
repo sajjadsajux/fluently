@@ -1,13 +1,32 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Contexts/AuthContext";
+import Loader from "../../Utils/loader";
 
 const MyTutorials = () => {
+  const { user } = use(AuthContext);
   const loadedmyTutorials = useLoaderData();
   const [myTutorials, setMyTutorials] = useState(loadedmyTutorials);
+  const [loading, setLoading] = useState(true);
+
   console.log(myTutorials);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMyTutorials(data);
+        setLoading(false);
+      })
+      .catch((err) => console.error("Failed to fetch tutorials:", err));
+  }, [user.email, user.accessToken]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -39,7 +58,9 @@ const MyTutorials = () => {
       .catch((err) => console.log(err));
   };
   SetTitle("My Tutorials");
-
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <div className="container mx-auto my-6 p-4 min-h-[100vh]">
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">My Tutorials</h2>
@@ -66,7 +87,7 @@ const MyTutorials = () => {
                   <p className="">{tutorial.description}</p>
                 </div>
 
-                <div className="flex gap-3 mt-4">
+                <div className="flex gap-3 mt-4 ">
                   <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-info">
                     Update
                   </Link>

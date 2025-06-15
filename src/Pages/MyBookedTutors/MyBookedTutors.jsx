@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
+import { Flip, toast } from "react-toastify";
 
 const MyBookedTutors = () => {
   const loadedTutors = useLoaderData();
@@ -15,9 +16,20 @@ const MyBookedTutors = () => {
       .then((res) => {
         console.log(res);
         if (res.data.tutorialUpdate.modifiedCount || res.data.bookedUpdate.modifiedCount) {
-          alert("Updated");
           const updatedTutors = bookedTutors.map((tutor) => {
             if (tutor.tutorId === id) {
+              toast.success("Thank you! Your review has been submitted successfully.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Flip,
+              });
+
               return { ...tutor, review: tutor.review + 1 };
             }
             return tutor;
