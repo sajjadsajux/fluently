@@ -11,7 +11,7 @@ const MyTutorials = () => {
   const [myTutorials, setMyTutorials] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(myTutorials);
+  // console.log(myTutorials);
 
   useEffect(() => {
     if (!user?.email || !user?.accessToken) return;
@@ -41,7 +41,7 @@ const MyTutorials = () => {
       .then((result) => {
         if (result.isConfirmed) {
           axios.delete(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${id}`).then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             if (res.data.bookedResult.deletedCount || res.data.tutorialResult.deletedCount) {
               // alert("Deleted successfully");
               const remaining = myTutorials.filter((tuto) => tuto._id !== id);

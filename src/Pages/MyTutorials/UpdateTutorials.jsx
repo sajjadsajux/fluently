@@ -49,13 +49,13 @@ const UpdateTutorials = () => {
       review,
     };
 
-    console.log("Tutorial submitted:", updatedTutorial);
+    // console.log("Tutorial submitted:", updatedTutorial);
 
     // fetching api
     axios
       .patch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${prevData._id}`, updatedTutorial)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.bookedResult.modifiedCount || res.data.tutorialResult.modifiedCount) {
           toast("Tutorial updated successfully!", {
             position: "top-right",

@@ -7,7 +7,7 @@ import { Bounce, Slide, toast } from "react-toastify";
 
 const AddTutorials = () => {
   const { user } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleAddTutorial = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const AddTutorials = () => {
       review: 0,
     };
 
-    console.log("Tutorial submitted:", newTutorial);
+    // console.log("Tutorial submitted:", newTutorial);
 
     // fetching api
     axios

@@ -43,7 +43,7 @@ const Login = () => {
         axios
           .post(`${import.meta.env.VITE_LOCAL_URL}/users`, userDB)
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
           })
           .catch((error) => {
             console.log(error);
@@ -93,7 +93,7 @@ const Login = () => {
         axios
           .post(`${import.meta.env.VITE_LOCAL_URL}/users`, userDB)
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
           })
           .catch((error) => {
             console.log(error);

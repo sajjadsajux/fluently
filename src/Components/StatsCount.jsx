@@ -14,7 +14,7 @@ const StatsCount = () => {
     axios
       .get(`${import.meta.env.VITE_LOCAL_URL}/stats`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setStats(res.data);
       })
       .catch((err) => {
@@ -25,7 +25,7 @@ const StatsCount = () => {
     axios
       .get(`${import.meta.env.VITE_LOCAL_URL}/users`)
       .then((res) => {
-        console.log(res.data.totalUsers);
+        // console.log(res.data.totalUsers);
         setUser(res.data);
       })
       .catch((err) => {

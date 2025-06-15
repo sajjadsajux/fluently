@@ -14,7 +14,7 @@ const FindTutors = () => {
   const params = new URLSearchParams(location.search);
   const category = params.get("category") || "";
 
-  console.log(search);
+  // console.log(search);
   useEffect(() => {
     const query = search || category;
 

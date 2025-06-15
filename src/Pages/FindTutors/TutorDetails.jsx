@@ -34,7 +34,7 @@ const TutorDetails = () => {
   if (!tutor) return <Loader></Loader>;
 
   const { description, email, image, language, name, price, review, _id } = tutor;
-  console.log(tutor);
+  // console.log(tutor);
   const bookedData = {
     tutorId: _id,
     name: name,
@@ -46,7 +46,7 @@ const TutorDetails = () => {
     email: user?.email,
     description: description,
   };
-  console.log(bookedData);
+  // console.log(bookedData);
 
   const handleBook = () => {
     axios

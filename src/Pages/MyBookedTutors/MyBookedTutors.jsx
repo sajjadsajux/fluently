@@ -10,7 +10,7 @@ const MyBookedTutors = () => {
   const [bookedTutors, setBookedTutors] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(bookedTutors);
+  // console.log(bookedTutors);
   const { user } = use(AuthContext);
   useEffect(() => {
     if (!user?.email || !user?.accessToken) return;
@@ -32,7 +32,7 @@ const MyBookedTutors = () => {
     axios
       .patch(`${import.meta.env.VITE_LOCAL_URL}/review/${id}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.tutorialUpdate.modifiedCount || res.data.bookedUpdate.modifiedCount) {
           const updatedTutors = bookedTutors.map((tutor) => {
             if (tutor.tutorId === id) {
