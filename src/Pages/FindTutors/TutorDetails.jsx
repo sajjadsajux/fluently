@@ -1,13 +1,37 @@
-import React, { use } from "react";
-import { useLoaderData } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import SetTitle from "../../Hooks/SetTitle";
 import { Flip, toast } from "react-toastify";
+import Loader from "../../Utils/loader";
 
 const TutorDetails = () => {
-  const tutor = useLoaderData();
+  const [tutor, setTutor] = useState(null);
   const { user } = use(AuthContext);
+  const { id } = useParams();
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_LOCAL_URL}/tutor/${id}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTutor(data);
+        setLoading(false);
+      })
+      .catch((err) => console.error("Failed to fetch tutorials:", err));
+  }, [id, user.accessToken]);
+  SetTitle(`Tutor- ${tutor?.name}`);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
+  if (!tutor) return <Loader></Loader>;
 
   const { description, email, image, language, name, price, review, _id } = tutor;
   console.log(tutor);
@@ -46,8 +70,6 @@ const TutorDetails = () => {
         console.log(error);
       });
   };
-
-  SetTitle(`Tutor- ${tutor.name}`);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 h-[100vh]">

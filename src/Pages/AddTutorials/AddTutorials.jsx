@@ -48,6 +48,7 @@ const AddTutorials = () => {
             theme: "light",
             transition: Slide,
           });
+          form.reset();
         }
       })
       .catch((error) => {

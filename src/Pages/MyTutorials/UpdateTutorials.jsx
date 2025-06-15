@@ -1,20 +1,19 @@
 import axios from "axios";
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useParams } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
 import { Bounce, toast, Zoom } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Loader from "../../Utils/loader";
 
 const UpdateTutorials = () => {
-  const prevDataLoaded = useLoaderData();
-  // console.log(prevData);
-  const [prevData, setPrevData] = useState(prevDataLoaded);
+  const [prevData, setPrevData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
   const { id } = useParams();
 
   useEffect(() => {
+    if (!user?.accessToken) return;
     fetch(`${import.meta.env.VITE_LOCAL_URL}/update-tutorials/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
@@ -89,7 +88,7 @@ const UpdateTutorials = () => {
   };
   SetTitle(`Update Tutorial`);
   if (loading) {
-    return Loader;
+    return <Loader></Loader>;
   }
   return (
     <div className="">

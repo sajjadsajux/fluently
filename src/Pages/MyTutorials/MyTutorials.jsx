@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { use, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Contexts/AuthContext";
@@ -8,13 +8,13 @@ import Loader from "../../Utils/loader";
 
 const MyTutorials = () => {
   const { user } = use(AuthContext);
-  const loadedmyTutorials = useLoaderData();
-  const [myTutorials, setMyTutorials] = useState(loadedmyTutorials);
+  const [myTutorials, setMyTutorials] = useState([]);
   const [loading, setLoading] = useState(true);
 
   console.log(myTutorials);
 
   useEffect(() => {
+    if (!user?.email || !user?.accessToken) return;
     fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${user.email}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,

@@ -1,14 +1,32 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import {} from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
 import { Flip, toast } from "react-toastify";
+import { AuthContext } from "../../Contexts/AuthContext";
+import Loader from "../../Utils/loader";
 
 const MyBookedTutors = () => {
-  const loadedTutors = useLoaderData();
-  const [bookedTutors, setBookedTutors] = useState(loadedTutors);
+  const [bookedTutors, setBookedTutors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   console.log(bookedTutors);
+  const { user } = use(AuthContext);
+  useEffect(() => {
+    if (!user?.email || !user?.accessToken) return;
+
+    fetch(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors/${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setBookedTutors(data);
+        setLoading(false);
+      })
+      .catch((err) => console.error("Failed to fetch tutorials:", err));
+  }, [user.email, user.accessToken]);
 
   const handleReview = (id) => {
     axios
@@ -42,7 +60,9 @@ const MyBookedTutors = () => {
       });
   };
   SetTitle("My Booked Tutors");
-
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 min-h-[100vh]">
       <h2 className="text-3xl font-bold text-center mb-8 text-primary">My Booked Tutors</h2>

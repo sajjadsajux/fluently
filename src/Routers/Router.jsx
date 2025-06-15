@@ -62,8 +62,8 @@ const router = createBrowserRouter([
             <MyBookedTutors></MyBookedTutors>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors/${params.email}`),
-        hydrateFallbackElement: <Loader></Loader>,
+        // loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors/${params.email}`),
+        // hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/my-tutorials/:email",
@@ -72,8 +72,8 @@ const router = createBrowserRouter([
             <MyTutorials></MyTutorials>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${params.email}`),
-        hydrateFallbackElement: <Loader></Loader>,
+        // loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${params.email}`),
+        // hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/update-tutorials/:id",
@@ -82,8 +82,8 @@ const router = createBrowserRouter([
             <UpdateTutorials></UpdateTutorials>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/update-tutorials/${params.id}`),
-        hydrateFallbackElement: <Loader></Loader>,
+        // loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/update-tutorials/${params.id}`),
+        // hydrateFallbackElement: <Loader></Loader>,
       },
     ],
   },
