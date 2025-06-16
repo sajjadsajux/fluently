@@ -15,19 +15,8 @@
 a.active {
   @apply bg-primary px-1 text-white;
 }
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #444;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.slick-prev:before,
+.slick-next:before {
+  color: gray !important;
+  font-size: 30px;
 }

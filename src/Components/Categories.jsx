@@ -22,17 +22,13 @@ const Categories = () => {
         <h2 className="text-4xl font-bold  mb-4 text-center  ">Language Categories</h2>
         <div className="w-24 h-1 bg-primary mx-auto"></div>
 
-        <p className="mt-4 text-lg opacity-80 text-center">Hear from those who've experienced our platform</p>
+        <p className="mt-4 text-lg opacity-80 text-center">Discover the rich diversity of language tutors helping people connect, learn, and grow across borders.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
           {categories.map((cat) => (
-            <div
-              key={cat.id}
-              onClick={() => navigate(`/find-tutors?category=${encodeURIComponent(cat.title)}`)}
-              className="cursor-pointer flex items-center justify-between bg-white dark:bg-gray-900 shadow-lg rounded-xl p-6 hover:shadow-2xl transform hover:scale-105 transition-transform duration-300"
-            >
+            <div key={cat.id} onClick={() => navigate(`/find-tutors?category=${encodeURIComponent(cat.title)}`)} className="cursor-pointer flex items-center justify-between bg-white  shadow-lg rounded-xl p-6 hover:shadow-2xl transform hover:scale-105 transition-transform duration-300">
               <div className="flex items-center space-x-5">
-                <img src={cat.logo} alt={`${cat.title} flag`} className="w-14 h-14 rounded-full object-cover border-2 border-gray-300 dark:border-gray-600" />
+                <img src={cat.logo} alt={`${cat.title} flag`} className="w-14 h-14 rounded-full object-cover border-2 border-gray-300 " />
                 <h3 className="text-xl font-semibold text-gray-700 ">{cat.title}</h3>
               </div>
               <div className="text-gray-400">

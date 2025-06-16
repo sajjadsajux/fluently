@@ -16,6 +16,8 @@ const FindTutors = () => {
 
   // console.log(search);
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     const query = search || category;
 
     axios

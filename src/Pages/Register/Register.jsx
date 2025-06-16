@@ -89,9 +89,9 @@ const Register = () => {
   SetTitle("Register || Fluently");
 
   return (
-    <div className="lg:h-[100vh]    flex items-center justify-center container mx-auto  p-2">
-      <div className="container  mx-auto max-w-md p-8 space-y-3 rounded-xl bg-base-300 text-base-content shadow-md">
-        <h1 className="text-2xl font-bold text-center">Register</h1>
+    <div className="min-h-screen  flex items-center justify-center container mx-auto  p-2">
+      <div className="container  mx-auto max-w-md p-8 space-y-3 rounded-xl bg-base-300 text-base-content shadow-md border border-white">
+        <h1 className="text-2xl font-bold text-center text-primary">Register</h1>
         <form className="space-y-6" onSubmit={handleRegister}>
           {/* name */}
           <div className="space-y-1 text-sm">
@@ -118,7 +118,7 @@ const Register = () => {
             {passwordError && <p className="text-red-400 text-sm mt-1">{passwordError}</p>}
           </div>
 
-          <button type="submit" className="block w-full p-3 text-center rounded-sm bg-primary text-primary-content hover:bg-primary-focus">
+          <button type="submit" className="block w-full p-3 text-center rounded-sm bg-primary text-primary-content hover:bg-green-600">
             Register
           </button>
         </form>

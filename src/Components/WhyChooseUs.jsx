@@ -54,9 +54,9 @@ const WhyChooseUs = () => {
         <div className="w-24 h-1 bg-primary mx-auto my-5"></div>
         <p className="text-lg text-center opacity-80 mb-12">Here’s why students love learning on our platform.</p>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 border border-base-300 divide-x divide-y divide-base-300">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 border border-base-300 divide-x divide-y divide-base-300 ">
           {features.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center p-6">
+            <div key={index} className="flex flex-col items-center text-center p-6 transform transition-all duration-300 hover:shadow-lg hover:scale-105">
               <div className="mb-4">{item.icon}</div>
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-sm   mt-2">{item.desc}</p>

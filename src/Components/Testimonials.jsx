@@ -16,7 +16,7 @@ const Testimonials = () => {
     {
       id: 2,
       name: "Carlos Souza",
-      feedback: "I improved my English for better job opportunities in a new country. Highly recommended!",
+      feedback: "I improved my English for better job opportunities. Highly recommended!",
       image: "https://c0.wallpaperflare.com/preview/718/590/339/brazil-brasilia-sunset-sun.jpg",
       role: "Job Seeker",
       country: "Brazil",
@@ -31,7 +31,7 @@ const Testimonials = () => {
     },
     {
       id: 4,
-      name: "Ahmed Al-Sayed",
+      name: "Ahmed Al-Jafar",
       feedback: "Great support and easy to schedule sessions. I’m very happy with the results.",
       image: "https://www.canamenterprises.com/wp-content/uploads/2019/04/LR-1-340x510.jpg",
       role: "Entrepreneur",
@@ -47,7 +47,7 @@ const Testimonials = () => {
     },
     {
       id: 6,
-      name: "Hans Müller",
+      name: "Gerd Müller",
       feedback: "Everything is well-organized and user-friendly. Booking a session takes just seconds!",
       image: "https://c0.wallpaperflare.com/preview/554/373/190/man-in-white-crew-neck-t-shirt.jpg",
       role: "IELTS Candidate",
@@ -76,17 +76,24 @@ const Testimonials = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     responsive: [
       {
-        breakpoint: 1024, // medium screens
+        breakpoint: 1280,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 640, // small screens
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -96,18 +103,18 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-base-100/50 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-base-100/50 py-16 ">
+      <div className="max-w-7xl mx-auto px-8  ">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">What Our Students Say</h2>
           <div className="w-24 h-1 bg-primary mx-auto"></div>
           <p className="mt-4 text-lg opacity-80">Hear from those who've experienced our platform</p>
         </div>
 
-        <Slider {...settings} className="space-x-6 ">
+        <Slider {...settings} className=" ">
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="px-3">
-              <div className="bg-base-100 border  dark:border-base-300 rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 border-white">
+              <div className="bg-base-100 border  dark:border-base-300 rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 border-white ">
                 {/* Header: Avatar + Name */}
                 <div className="flex items-center gap-4 ">
                   <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary" />
@@ -118,8 +125,8 @@ const Testimonials = () => {
                 </div>
 
                 {/* Feedback */}
-                <div className="relative pl-6 text-base-content/80 italic">
-                  <FaQuoteLeft className="absolute -left-1 top-1 text-primary opacity-40" />
+                <div className="relative pl-6 text-base-content/80 italic h-20 overflow-auto">
+                  <FaQuoteLeft className="absolute left-0 top-1 text-primary opacity-40" />
                   <p>{testimonial.feedback}</p>
                 </div>
 
