@@ -14,6 +14,8 @@ const TutorDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     fetch(`${import.meta.env.VITE_LOCAL_URL}/tutor/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
@@ -72,29 +74,35 @@ const TutorDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10 h-[100vh]">
-      <div className="card lg:card-side bg-base-100 shadow-xl">
-        <figure className="lg:w-1/2">
-          <img src={image} alt={tutor.name} className="w-full h-80 object-cover rounded-lg" />
-        </figure>
-        <div className="card-body lg:w-1/2">
-          <h2 className="card-title text-2xl text-primary">{name}</h2>
-          <p>
-            <strong>Language:</strong> {language}
-          </p>
-          <p>
-            <strong>Description:</strong> {description}
-          </p>
-          <p>
-            <strong>Price:</strong> ${price}
-          </p>
-          <p>
-            <strong>Review:</strong> ⭐ {review || 0}
-          </p>
-          <div className="card-actions justify-end mt-4">
-            <button onClick={handleBook} className="btn btn-primary">
-              Book Session
-            </button>
+    <div>
+      <h2 className="text-3xl font-bold text-center  text-primary pt-10">Tutor Details</h2>
+
+      <div className="flex items-start justify-center min-h-screen px-4 pb-10 pt-5">
+        <div className="max-w-md w-full border border-white">
+          <div className="card bg-base-100 shadow-2xl p-6 rounded-xl">
+            <figure className="mb-6">
+              <img src={image} alt={name} className="w-full h-60 object-cover rounded-xl" />
+            </figure>
+            <div className="card-body text-center">
+              <h2 className="card-title text-3xl font-semibold text-primary mb-4 flex justify-center">{name}</h2>
+              <p className="mb-2">
+                <strong>Language:</strong> {language}
+              </p>
+              <p className="mb-2">
+                <strong>Description:</strong> {description}
+              </p>
+              <p className="mb-4">
+                <strong>Review:</strong> ⭐ {review || 0}
+              </p>
+              <p className="mb-2">
+                <strong>Price:</strong> ${price}
+              </p>
+              <div className="card-actions justify-center">
+                <button onClick={handleBook} className="btn btn-primary hover:bg-green-700">
+                  Book Session
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

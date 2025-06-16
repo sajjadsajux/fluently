@@ -30,7 +30,7 @@ const FindTutors = () => {
       <div className="container mx-auto py-10 min-h-[100vh]">
         <h2 className="text-3xl font-bold text-center mb-8 text-primary">Find Your Perfect Tutor</h2>
 
-        <div className="flex justify-center my-10">
+        <div className="flex justify-center my-10 px-2 md:px-0">
           <label className="input">
             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">

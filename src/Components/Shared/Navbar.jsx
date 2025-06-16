@@ -85,7 +85,7 @@ const Navbar = () => {
               {linksNav}
             </ul>
           </div>
-          <h3 className="text-xl pl-0 md:text-2xl lg:text-3xl font-bold ">
+          <h3 className="text-2xl pl-0 md:text-2xl lg:text-4xl font-bold ">
             <span className="text-primary">
               Fluent<span className="text-secondary">ly</span>
             </span>
@@ -114,7 +114,7 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <div className="flex flex-row flex-nowrap gap-2">
+            <div className="flex flex-row flex-nowrap gap-2 ">
               <NavLink className="btn btn-primary px-2 py-1 md:btn-md md:text-base rounded-2xl text-sm " to="/login">
                 Login
               </NavLink>
