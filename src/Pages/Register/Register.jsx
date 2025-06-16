@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router";
 import { Bounce, toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SetTitle from "../../Hooks/SetTitle";
+import axios from "axios";
 
 const Register = () => {
   const { signUpUser, setUser, updateUser } = use(AuthContext);
@@ -37,19 +38,33 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            toast.success(`Welcome, ${name} Registration done, redirected to homepage...`, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-              transition: Bounce,
-            });
 
-            navigate("/");
+            const userDB = {
+              uid: user.uid,
+              name: user.displayName,
+              email: user.email,
+              image: user.photoURL,
+            };
+            axios
+              .post(`${import.meta.env.VITE_LOCAL_URL}/users`, userDB)
+              .then((res) => {
+                // console.log(res.data);
+                toast.success(`Welcome, ${name} Registration done, redirected to homepage...`, {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "colored",
+                  transition: Bounce,
+                });
+                navigate("/");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           })
           .catch((error) => {
             console.log(error);

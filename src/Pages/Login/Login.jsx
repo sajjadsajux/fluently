@@ -22,12 +22,7 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         const user = result.user;
-        const userDB = {
-          uid: user.uid,
-          name: user.displayName,
-          email: user.email,
-          image: user.photoURL,
-        };
+
         toast.success(`Welcome back, ${user.displayName}, you've successfully logged in!`, {
           position: "top-right",
           autoClose: 5000,
@@ -39,16 +34,6 @@ const Login = () => {
           theme: "light",
           transition: Bounce,
         });
-
-        axios
-          .post(`${import.meta.env.VITE_LOCAL_URL}/users`, userDB)
-          .then((res) => {
-            // console.log(res.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {

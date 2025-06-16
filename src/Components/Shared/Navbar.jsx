@@ -74,7 +74,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="navbar bg-base-100 my-2">
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden pl-0 pr-2">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,7 +109,7 @@ const Navbar = () => {
               )}
 
               {/* Logout Button */}
-              <button onClick={handleLogOut} className="hover:bg-red-600 btn btn-primary btn-sm md:btn-md rounded-2xl text-sm md:text-base ml-1 mr-3 md:mr-0">
+              <button onClick={handleLogOut} className="hover:bg-red-600 btn btn-primary btn-sm md:btn-md rounded-2xl text-sm md:text-base ml-1 mr-10 md:mr-0">
                 LogOut
               </button>
             </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
             </div>
           )}
           {/* dark light mode */}
-          <div className="ml-[24px] md:ml-1">
+          <div className="ml-[5px] md:ml-1">
             <label className="toggle text-base-content">
               <input type="checkbox" value="dark" className="theme-controller" onChange={handleToggle} checked={isDark} />
               <MdOutlineLightMode />
