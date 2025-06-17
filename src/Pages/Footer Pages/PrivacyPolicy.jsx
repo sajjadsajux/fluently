@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import SetTitle from "../../Hooks/SetTitle";
 
 const PrivacyPolicy = () => {
+  SetTitle(`Privacy Policy`);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);

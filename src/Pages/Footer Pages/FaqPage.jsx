@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import SetTitle from "../../Hooks/SetTitle";
 
 const FaqPage = () => {
+  SetTitle(`Faqs`);
+
   const faqs = [
     {
       question: "How do I book a tutor?",
@@ -20,7 +23,7 @@ const FaqPage = () => {
     },
     {
       question: "Who can I contact for help?",
-      answer: "If you need help or have questions, please reach us at support@fluently.com or use our 24/7 support chat.",
+      answer: "If you need help or have questions, please reach us at information@fluently.com or use our 24/7 support chat.",
     },
     {
       question: "Do I need to create an account to book a tutor?",
