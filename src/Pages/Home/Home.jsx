@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../../Components/Banner";
 import StatsCount from "../../Components/StatsCount";
 import Categories from "../../Components/Categories";
@@ -8,6 +8,9 @@ import SetTitle from "../../Hooks/SetTitle";
 
 const Home = () => {
   SetTitle("Home");
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
