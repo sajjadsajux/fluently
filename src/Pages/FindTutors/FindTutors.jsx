@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import SetTitle from "../../Hooks/SetTitle";
 import { IoIosStar } from "react-icons/io";
+import Loader from "../../Utils/loader";
 
 const FindTutors = () => {
   // const tutors = useLoaderData();
@@ -14,6 +15,7 @@ const FindTutors = () => {
 
   const params = new URLSearchParams(location.search);
   const category = params.get("category") || "";
+  const [loading, setLoading] = useState(true);
 
   // console.log(search);
   useEffect(() => {
@@ -24,10 +26,14 @@ const FindTutors = () => {
     axios
       .get(`${import.meta.env.VITE_LOCAL_URL}/tutorials?searchQuery=${query}`)
       .then((res) => setTutors(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, [search, category]);
 
   SetTitle("All Tutors");
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <>
       <div className="container mx-auto py-10 min-h-[100vh]">
