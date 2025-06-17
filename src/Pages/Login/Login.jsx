@@ -130,7 +130,7 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16 bg-gray-300 "></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button onClick={handleGoogleLogin} aria-label="Log in with Google" className="p-3 rounded-sm btn btn-ghost">
+          <button onClick={handleGoogleLogin} aria-label="Log in with Google" className="p-3 rounded-sm btn btn-ghost hover:cursor-pointer">
             <FcGoogle size={30} />
           </button>
         </div>

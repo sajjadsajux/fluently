@@ -70,9 +70,9 @@ const MyBookedTutors = () => {
       {bookedTutors.length === 0 ? (
         <p className="text-center text-gray-500">No bookings found.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {bookedTutors.map((tutor, index) => (
-            <div key={index} className="card bg-base-100 shadow-xl rounded-xl">
+            <div key={index} className="card bg-base-100 shadow-xl rounded-xl border border-white  transform transition-all duration-300 hover:shadow-lg hover:scale-105">
               <figure>
                 <img src={tutor.image} alt={tutor.name} className="w-full h-48 object-cover rounded-t-xl" />
               </figure>
