@@ -88,10 +88,10 @@ const MyTutorials = () => {
                 </div>
 
                 <div className="flex gap-3 mt-4 ">
-                  <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-primary">
+                  <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-primary hover:bg-green-600">
                     Update
                   </Link>
-                  <button onClick={() => handleDelete(tutorial._id)} className="btn btn-sm btn-secondary">
+                  <button onClick={() => handleDelete(tutorial._id)} className="btn btn-sm btn-secondary hover:bg-red-600">
                     Delete
                   </button>
                 </div>
