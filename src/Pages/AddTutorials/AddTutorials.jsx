@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Loader from "../../Utils/loader";
 import axios from "axios";
@@ -8,6 +8,10 @@ import { Bounce, Slide, toast } from "react-toastify";
 const AddTutorials = () => {
   const { user } = use(AuthContext);
   // console.log(user);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const handleAddTutorial = (e) => {
     e.preventDefault();

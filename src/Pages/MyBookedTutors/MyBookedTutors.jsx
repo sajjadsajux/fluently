@@ -13,6 +13,8 @@ const MyBookedTutors = () => {
   // console.log(bookedTutors);
   const { user } = use(AuthContext);
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (!user?.email || !user?.accessToken) return;
 
     fetch(`${import.meta.env.VITE_LOCAL_URL}/booked-tutors/${user.email}`, {

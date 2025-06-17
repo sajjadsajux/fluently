@@ -14,6 +14,8 @@ const MyTutorials = () => {
   // console.log(myTutorials);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (!user?.email || !user?.accessToken) return;
     fetch(`${import.meta.env.VITE_LOCAL_URL}/tutorials/${user.email}`, {
       headers: {
