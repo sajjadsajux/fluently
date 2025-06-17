@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import { Link } from "react-router";
 const Banner = () => {
   return (
     <div className="w-full px-2 md:px-0">
@@ -21,10 +22,12 @@ const Banner = () => {
               }}
               className="text-2xl md:text-3xl lg:text-4xl font-bold "
             >
-              Learn Anytime, <motion.span animate={{ color: ["#FF5400", "#46e90e", "#17b4ef"], transition: { duration: 10, repeat: Infinity } }}>From Anywhere</motion.span>
+              Learn Anytime, <motion.span animate={{ color: ["#ffffff", "#ff5400", "#4f9ec4"], transition: { duration: 10, repeat: Infinity } }}>From Anywhere</motion.span>
             </motion.h1>
             <p className="py-4 max-w-none">Find expert tutors in languages and subjects you care about. Book 1-on-1 lessons with ease and take control of your learning journey with our trusted online platform.</p>
-            <button className="btn btn-secondary">Explore Tutors</button>
+            <Link to="/find-tutors" className="btn btn-secondary">
+              Explore Tutors
+            </Link>
           </div>
         </div>
       </div>

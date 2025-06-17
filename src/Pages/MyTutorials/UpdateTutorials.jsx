@@ -91,10 +91,10 @@ const UpdateTutorials = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="">
+    <div className="min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-10 ">
         <h2 className="text-3xl font-bold mb-6 text-center text-primary">Update Tutorial</h2>
-        <form onSubmit={handleUpdate} className="space-y-6 bg-base-200 p-6 rounded-xl shadow-md">
+        <form onSubmit={handleUpdate} className="space-y-6 bg-base-200 p-6 rounded-xl shadow-md border border-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="label">User Name</label>
@@ -126,7 +126,7 @@ const UpdateTutorials = () => {
             <textarea name="description" required defaultValue={prevData.description} rows="4" placeholder="Describe the tutorial" className="textarea textarea-bordered w-full"></textarea>
           </div>
           <div>
-            <button type="submit" className="btn btn-primary w-full">
+            <button type="submit" className="btn btn-primary w-full hover:bg-green-600">
               Update
             </button>
           </div>

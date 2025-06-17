@@ -62,7 +62,7 @@ const MyTutorials = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="container mx-auto my-6 p-4 min-h-[100vh]">
+    <div className="max-w-4xl mx-auto my-6 p-4 min-h-[100vh]">
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">My Tutorials</h2>
 
       {myTutorials.length === 0 ? (
@@ -71,7 +71,7 @@ const MyTutorials = () => {
         <div className="grid grid-cols-1 gap-6">
           {myTutorials.map((tutorial) => (
             <div key={tutorial._id} className=" rounded-2xl shadow-lg overflow-hidden border flex flex-col md:flex-row">
-              <div className="w-full md:w-1/3 h-64">
+              <div className="w-full md:w-1/3 h-80">
                 <img src={tutorial.image} alt="Tutorial" className="w-full h-full object-cover" />
               </div>
 
@@ -82,16 +82,16 @@ const MyTutorials = () => {
                     <span className="font-semibold">Price:</span> ${tutorial.price}
                   </p>
                   <p className=" mb-2">
-                    <span className="font-semibold">Review:</span> {tutorial.review}
+                    <span className="font-semibold">Reviews:</span> {tutorial.review}
                   </p>
                   <p className="">{tutorial.description}</p>
                 </div>
 
                 <div className="flex gap-3 mt-4 ">
-                  <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-info">
+                  <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-primary">
                     Update
                   </Link>
-                  <button onClick={() => handleDelete(tutorial._id)} className="btn btn-sm btn-error">
+                  <button onClick={() => handleDelete(tutorial._id)} className="btn btn-sm btn-secondary">
                     Delete
                   </button>
                 </div>

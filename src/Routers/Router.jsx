@@ -13,6 +13,9 @@ import MyBookedTutors from "../Pages/MyBookedTutors/MyBookedTutors";
 import MyTutorials from "../Pages/MyTutorials/MyTutorials";
 import UpdateTutorials from "../Pages/MyTutorials/UpdateTutorials";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import FaqPage from "../Pages/Footer Pages/FaqPage";
+import PrivacyPolicy from "../Pages/Footer Pages/PrivacyPolicy";
+import TermsAndConditions from "../Pages/Footer Pages/TermsAndConditions";
 
 const router = createBrowserRouter([
   {
@@ -44,8 +47,8 @@ const router = createBrowserRouter([
             <TutorDetails></TutorDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutor/${params.id}`),
-        hydrateFallbackElement: <Loader></Loader>,
+        // loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/tutor/${params.id}`),
+        // hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/add-tutorials",
@@ -84,6 +87,18 @@ const router = createBrowserRouter([
         ),
         // loader: ({ params }) => fetch(`${import.meta.env.VITE_LOCAL_URL}/update-tutorials/${params.id}`),
         // hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/faq",
+        Component: FaqPage,
+      },
+      {
+        path: "/privacy-policy",
+        Component: PrivacyPolicy,
+      },
+      {
+        path: "/terms-and-conditions",
+        Component: TermsAndConditions,
       },
     ],
   },

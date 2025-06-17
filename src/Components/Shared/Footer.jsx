@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaSquareThreads, FaSquareXTwitter } from "react-icons/fa6";
@@ -8,8 +8,8 @@ const Footer = () => {
   const { user } = use(AuthContext);
 
   return (
-    <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8 bg-primary text-white">
-      <div className="grid gap-12 row-gap-10 mb-12 sm:grid-cols-2 lg:grid-cols-4 container mx-auto">
+    <div className="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8 bg-primary text-white">
+      <div className="grid gap-12 row-gap-10 mb-8 sm:grid-cols-2 lg:grid-cols-4 container mx-auto">
         {/* Company Logo & Description */}
         <div>
           <h2 className="text-3xl font-bold tracking-wide">
@@ -104,23 +104,23 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom Bar */}
-      <div className="flex flex-col-reverse items-center justify-between pt-6 pb-10 border-t border-white/30 lg:flex-row text-sm container mx-auto">
+      <div className="flex flex-col-reverse items-center justify-between pt-6 pb-8 border-t border-white/30 lg:flex-row text-sm container mx-auto">
         <p className="mt-4 lg:mt-0">© Copyright 2025 Fluently All rights reserved.</p>
         <ul className="flex flex-wrap justify-center space-x-4">
           <li>
-            <a href="/" className="hover:underline">
+            <Link to="/faq" className="hover:underline">
               F.A.Q
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="hover:underline">
+            <Link to="/privacy-policy" className="hover:underline">
               Privacy Policy
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="hover:underline">
+            <Link to="/terms-and-conditions" className="hover:underline">
               Terms & Conditions
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

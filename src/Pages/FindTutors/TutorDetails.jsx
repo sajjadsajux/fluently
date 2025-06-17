@@ -5,6 +5,7 @@ import axios from "axios";
 import SetTitle from "../../Hooks/SetTitle";
 import { Flip, toast } from "react-toastify";
 import Loader from "../../Utils/loader";
+import { IoIosStar } from "react-icons/io";
 
 const TutorDetails = () => {
   const [tutor, setTutor] = useState(null);
@@ -91,9 +92,15 @@ const TutorDetails = () => {
               <p className="mb-2">
                 <strong>Description:</strong> {description}
               </p>
-              <p className="mb-4">
-                <strong>Review:</strong> ⭐ {review || 0}
+              <p className="mb-4 flex items-center justify-center gap-1">
+                <strong>Reviews:</strong> {review || 0}
+                <span className="flex ml-1">
+                  {[...Array(5)].map((_, i) => (
+                    <IoIosStar key={i} color="#FFD700" size={20} />
+                  ))}
+                </span>
               </p>
+
               <p className="mb-2">
                 <strong>Price:</strong> ${price}
               </p>
