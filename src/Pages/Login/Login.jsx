@@ -20,7 +20,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         const user = result.user;
 
         toast.success(`Welcome back, ${user.displayName}, you've successfully logged in!`, {
