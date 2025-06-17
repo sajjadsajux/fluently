@@ -22,8 +22,8 @@ const Footer = () => {
         </div>
 
         {/* Navigation Links */}
-        <div>
-          <h4 className="mb-4 text-md font-semibold">Navigation</h4>
+        <div className="hidden md:block">
+          <h4 className="mb-4 text-md font-semibold ">Navigation</h4>
           <ul className="space-y-2 text-sm">
             <li>
               <NavLink to="/" className="hover:underline">
