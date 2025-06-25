@@ -1,112 +1,146 @@
-# 🌍 Fluently — Learn and speak the world’s languages with ease
+# 🌍 Fluently — Learn and Speak the World’s Languages with Ease
 
-Fluently is a **modern Online Tutor Booking Platform** designed to connect users with expert language tutors quickly and effortlessly. Whether you’re a beginner or just brushing up your fluency, Fluently lets you learn at your own pace with the guidance of a private tutor — from the comfort of your home.
-
----
-
-## 🔑 Key Features
-
-- **Responsive Design:** Seamless experience across smartphones, tablets, and desktops
-- **User Authentication:** Signup, login, and Google Sign-In supported, with JWT-protection for private routes
-- **Browse Tutors:** Filter by language, view profiles, reviews, pricing, and ratings
-- **Book Sessions:** Book a private tutor directly from their profile page
-- **Manage Bookings:** View and review your booking history
-- **Add Tutorials:** Authenticated users can add their own tutors
-- **My Tutorials:** Update or delete your own added tutors
-- **Dark/Light Theme:** Easily switch between light and dark modes
-- **Loading States & Animations:** User-friendly loaders, alerts, and smooth UI transitions
-- **Reviews:** Provide feedback and reviews for tutors after booking
+**Fluently** is a modern Online Tutor Booking Platform designed to connect users with expert language tutors quickly and effortlessly. Whether you’re a beginner or just brushing up your fluency, Fluently lets you learn at your own pace with the guidance of a private tutor — from the comfort of your home.
 
 ---
 
-## 🛠️ Technologies & NPM Packages Used
+### 🖼️ Screenshot
 
-- **React Ecosystem:**
-
-  - `react` (^19.1.0)
-  - `react-dom` (^19.1.0)
-  - `react-router` (^7.6.1)
-  - `react-router-dom` (^7.6.2)
-
-- **Styling & UI Components:**
-
-  - `tailwindcss` (^4.1.8)
-  - `daisyui` (^5.0.43)
-  - `@tailwindcss/vite` (^4.1.8)
-
-- **Authentication & Backend:**
-
-  - `firebase` (^11.8.1)
-
-- **HTTP & Data Fetching:**
-
-  - `axios` (^1.9.0)
-
-- **UI & Interaction Enhancements:**
-  - `react-icons` (^5.5.0)
-  - `react-slick` (^0.30.3)
-  - `slick-carousel` (^1.8.1)
-  - `react-spinners` (^0.17.0)
-  - `react-toastify` (^11.0.5)
-  - `react-tooltip` (^5.28.1)
-  - `sweetalert2` (^11.22.0)
-  - `react-countup` (^6.5.3)
-  - `motion` (^12.16.0)
-  - `lottie-react` (^2.4.1)
+> *(Add a screenshot of the homepage or tutor booking section here)*
+> `![Fluently Home Page](https://i.ibb.co/B2nz5Hdm/Fire-Shot-Capture-011-Home-fluently-web-firebaseapp-com.png)`
 
 ---
 
-## 🌐 Live Site
+### 🔗 Live Site
 
-[https://fluently-web.firebaseapp.com/](https://fluently-web.firebaseapp.com/)
-
-[https://fluently-web.web.app/](https://fluently-web.web.app/)
-
----
-
-## 📁 Project Structure (Major Pages)
-
-- **Home:** Banner, Categories, Testimonials, Why Fluently
-- **Find Tutors:** All tutors or filter by Categories
-- **Tutor Details:** View profile and book
-- **My Booked Tutors:** Your booking history with reviews
-- **Add Tutorial:** Provide details to add a new tutor
-- **My Tutorials:** Update or delete your own tutorials
-- **Auth:** Signup, Signin, Google Sign-In
-- **Error page:** Handle invalid routes gracefully
+* [fluently-web.firebaseapp.com](https://fluently-web.firebaseapp.com)
+* [fluently-web.web.app](https://fluently-web.web.app)
 
 ---
 
-## 🔐 Security & Deployment Guidelines
+### 🛠️ Technologies Used
 
-- Firebase config and API credentials are kept in environment variables
-- JWT authentication safeguards private routes
-- CORS and 404, 500 handlers implemented on the backend
-- Domain is authorized in Firebase settings
-- Loading fallback to handle asynchronous operations gracefully
+#### Frontend:
+
+* **React** (^19.1.0)
+* **React DOM** (^19.1.0)
+* **React Router** (^7.6.1)
+* **React Router DOM** (^7.6.2)
+* **Tailwind CSS** (^4.1.8)
+* **DaisyUI** (^5.0.43)
+* **@tailwindcss/vite** (^4.1.8)
+
+#### Backend & Authentication:
+
+* **Firebase** (^11.8.1)
+* **JWT Authentication**
+
+#### HTTP & Data Fetching:
+
+* **Axios** (^1.9.0)
+
+#### UI & Enhancements:
+
+* **React Icons** (^5.5.0)
+* **React Slick** (^0.30.3)
+* **Slick Carousel** (^1.8.1)
+* **React Spinners** (^0.17.0)
+* **React Toastify** (^11.0.5)
+* **React Tooltip** (^5.28.1)
+* **SweetAlert2** (^11.22.0)
+* **React CountUp** (^6.5.3)
+* **Motion** (^12.16.0)
+* **Lottie React** (^2.4.1)
 
 ---
 
-## ⭐ Optional Features Implemented
+### ✨ Key Features
 
-- Loading spinners during data fetch
-- Dark/Light theme toggle for a better UX
-- Animations and transitions for smoother UI
-- User reviews count
-- Success messages and alerts (SweetAlert2, Toastify)
+* ✅ Responsive design across all devices
+* 🔐 Signup, login, Google Sign-In, and JWT-protected routes
+* 🔍 Browse tutors by category/language, view profiles, ratings, and pricing
+* 🗓️ Book sessions directly from a tutor's profile
+* 📁 Manage booking history and reviews
+* ➕ Authenticated users can add their own tutorials
+* 📝 Update or delete personal tutorials via "My Tutorials"
+* 🌗 Light/Dark theme toggle
+* ⚡ Smooth animations and transitions
+* 🌟 Provide post-session tutor feedback and reviews
+
+---
+
+### 📁 Project Structure (Major Pages)
+
+* **Home**: Banner, categories, testimonials, why Fluently
+* **Find Tutors**: Filter by categories and view all tutors
+* **Tutor Details**: View individual tutor profiles and book sessions
+* **My Booked Tutors**: See booking history, write reviews
+* **Add Tutorial**: Add new tutors (authenticated users only)
+* **My Tutorials**: Edit or delete your own tutorials
+* **Auth Pages**: Signup, Signin, Google Sign-In
+* **Error Page**: Handles invalid routes gracefully
 
 ---
 
-## 📝 Conclusion
+### 🔐 Security & Deployment Guidelines
 
-Fluently aims to bridge the gap between language learners and expert tutors worldwide by providing a seamless and intuitive platform. With its rich features, secure authentication, and responsive design, it empowers users to pursue language learning effectively and confidently.
+* Firebase config and credentials are stored in environment variables
+* JWT tokens protect private and sensitive routes
+* CORS, 404, and 500 error handlers are implemented
+* Firebase authorized domains configured
+* Graceful loading fallback for async data operations
+
+---
+
+### 🌟 Optional Features
+
+* Loading spinners during data fetch
+* Dark/Light theme toggle for improved UX
+* Animations and smooth transitions
+* Dynamic review counts
+* Success alerts via SweetAlert2 and Toastify
 
 ---
 
-## 💬 Feedback & Contributions
+### 🛆 Run Locally
 
-Your feedback is invaluable! If you find any issues or have suggestions to improve Fluently, please open an issue or submit a pull request. Contributions from the community are always welcome to make Fluently better for everyone.
+1. **Clone the Repository**
 
-Thank you for exploring Fluently!
+```bash
+git clone https://github.com/your-username/fluently.git
+cd fluently
+```
+
+2. **Install Dependencies**
+
+```bash
+npm install
+```
+
+3. **Setup Environment Variables**
+   Create a `.env` file in the root and add:
+
+```env
+VITE_apiKey=your_firebase_api_key
+VITE_authDomain=your_project.firebaseapp.com
+VITE_projectId=your_project_id
+VITE_storageBucket=your_project.appspot.com
+VITE_messagingSenderId=your_sender_id
+VITE_appId=your_app_id
+```
+
+4. **Start Development Server**
+
+```bash
+npm run dev
+```
 
 ---
+
+### 💬 Feedback & Contributions
+
+We welcome your feedback to make Fluently even better! If you encounter any bugs, have improvement ideas, or want to contribute new features, feel free to open an issue or suggest directly. Community contributions are highly appreciated and help this project grow stronger.
+
+---
+
+### 🙏 Thank You for Exploring Fluently!
