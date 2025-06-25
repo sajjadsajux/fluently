@@ -6,8 +6,8 @@
 
 ### 🖼️ Screenshot
 
-> *(Add a screenshot of the homepage or tutor booking section here)*
-> `![Fluently Home Page](https://i.ibb.co/B2nz5Hdm/Fire-Shot-Capture-011-Home-fluently-web-firebaseapp-com.png)`
+![Fluently Home Page](https://i.ibb.co/B2nz5Hdm/Fire-Shot-Capture-011-Home-fluently-web-firebaseapp-com.png)
+
 
 ---
 
