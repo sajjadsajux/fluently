@@ -11,12 +11,7 @@
 
 ---
 
-### 🔗 Live Site
 
-* [fluently-web.firebaseapp.com](https://fluently-web.firebaseapp.com)
-* [fluently-web.web.app](https://fluently-web.web.app)
-
----
 
 ### 🛠️ Technologies Used
 
@@ -147,6 +142,12 @@ VITE_appId=your_app_id
 ```bash
 npm run dev
 ```
+
+---
+### 🔗 Live Site
+
+* [fluently-web.firebaseapp.com](https://fluently-web.firebaseapp.com)
+* [fluently-web.web.app](https://fluently-web.web.app)
 
 ---
 
