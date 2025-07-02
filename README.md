@@ -7,7 +7,7 @@
 
 ### 🖼️ Screenshot
 
-![Fluently Home Page](https://i.ibb.co/B2nz5Hdm/Fire-Shot-Capture-011-Home-fluently-web-firebaseapp-com.png)
+![Fluently Home Page](https://iili.io/FYGyOQf.png)
 
 ---
 
