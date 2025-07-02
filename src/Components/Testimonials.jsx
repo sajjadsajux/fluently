@@ -113,8 +113,8 @@ const Testimonials = () => {
 
         <Slider {...settings} className=" ">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="px-3">
-              <div className="bg-base-100 border  dark:border-base-300 rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 border-white ">
+            <div key={testimonial.id} className="px-3 py-5">
+              <div className="bg-base-100 border border-gray-300   rounded-2xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition-transform duration-300 hover:-translate-y-1  ">
                 {/* Header: Avatar + Name */}
                 <div className="flex items-center gap-4 ">
                   <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary" />

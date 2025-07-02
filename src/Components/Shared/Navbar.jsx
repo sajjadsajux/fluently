@@ -111,7 +111,7 @@ const Navbar = () => {
 
               {/* Dropdown showing user name */}
               {showDropdown && (
-                <div className="absolute top-12 right-0 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-md z-50">
+                <div className="absolute top-12 right-0 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md z-50">
                   <div className="px-4 py-2 text-sm text-gray-800 dark:text-gray-200">{user?.displayName}</div>
                 </div>
               )}

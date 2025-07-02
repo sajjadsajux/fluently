@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
 
   return (
     <div className="bg-base-100 py-16">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center">Why Choose Us?</h2>
         <div className="w-24 h-1 bg-primary mx-auto my-5"></div>
         <p className="text-lg text-center opacity-80 mb-12">Here’s why students love learning on our platform.</p>

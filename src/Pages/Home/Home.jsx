@@ -5,6 +5,7 @@ import Categories from "../../Components/Categories";
 import Testimonials from "../../Components/Testimonials";
 import WhyChooseUs from "../../Components/WhyChooseUs";
 import SetTitle from "../../Hooks/SetTitle";
+import NewsLetter from "../../Components/NewsLetter";
 
 const Home = () => {
   SetTitle("Home");
@@ -18,16 +19,19 @@ const Home = () => {
         <Banner></Banner>
       </section>
       <section>
-        <StatsCount></StatsCount>
+        <Categories></Categories>
       </section>
       <section>
-        <Categories></Categories>
+        <StatsCount></StatsCount>
       </section>
       <section>
         <Testimonials></Testimonials>
       </section>
       <section>
         <WhyChooseUs></WhyChooseUs>
+      </section>
+      <section>
+        <NewsLetter></NewsLetter>
       </section>
     </>
   );
