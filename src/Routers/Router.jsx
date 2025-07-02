@@ -16,6 +16,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FaqPage from "../Pages/Footer Pages/FaqPage";
 import PrivacyPolicy from "../Pages/Footer Pages/PrivacyPolicy";
 import TermsAndConditions from "../Pages/Footer Pages/TermsAndConditions";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import Contact from "../Pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "/about-us",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
       },
       {
         path: "/find-tutors",

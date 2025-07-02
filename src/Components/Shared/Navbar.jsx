@@ -43,6 +43,10 @@ const Navbar = () => {
       <li>
         <NavLink to="/find-tutors">Find tutors</NavLink>
       </li>
+      <li>
+        <NavLink to="/about-us">About Us</NavLink>
+      </li>
+
       {user && (
         <>
           <li>
@@ -56,6 +60,10 @@ const Navbar = () => {
           </li>
         </>
       )}
+
+      <li>
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>
     </>
   );
   useEffect(() => {
@@ -72,8 +80,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
-      <div className="navbar bg-base-100 my-2  ">
+    <div className="container mx-auto ">
+      <div className="navbar  my-2  ">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden pl-0 pr-2">
