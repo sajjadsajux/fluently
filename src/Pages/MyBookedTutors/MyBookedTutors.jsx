@@ -5,6 +5,7 @@ import SetTitle from "../../Hooks/SetTitle";
 import { Flip, toast } from "react-toastify";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Loader from "../../Utils/loader";
+import { IoIosStar } from "react-icons/io";
 
 const MyBookedTutors = () => {
   const [bookedTutors, setBookedTutors] = useState([]);
@@ -72,37 +73,53 @@ const MyBookedTutors = () => {
       {bookedTutors.length === 0 ? (
         <p className="text-center text-gray-500">No bookings found.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-          {bookedTutors.map((tutor, index) => (
-            <div key={index} className="card bg-base-100 shadow-xl rounded-xl border border-white  transform transition-all duration-300 hover:shadow-lg hover:scale-105">
-              <figure>
-                <img src={tutor.image} alt={tutor.name} className="w-full h-48 object-cover rounded-t-xl" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title text-primary">{tutor.name}</h2>
-                <p>
-                  <strong>Review:</strong> ⭐ {tutor.review || 0}
-                </p>
-                <p>
-                  <strong>Language:</strong> {tutor.language}
-                </p>
-                <p>
-                  <strong>Price:</strong> ${tutor.price}
-                </p>
-                <p>
-                  <strong>Description:</strong> {tutor.description}
-                </p>
-                <p>
-                  <strong>Tutor Email:</strong> {tutor.tutorEmail}
-                </p>
-                <div className="card-actions justify-end mt-4">
-                  <button onClick={() => handleReview(tutor.tutorId)} className="btn btn-sm btn-outline btn-secondary">
-                    Review
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="overflow-x-auto">
+          <table className="table table-zebra border border-base-300 w-full">
+            <thead className="bg-base-200 text-base-content">
+              <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Price ($)</th>
+                <th>Review</th>
+                <th>Description</th>
+                <th>Tutor Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bookedTutors.map((tutor, index) => (
+                <tr key={tutor._id}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <img src={tutor.image} alt={tutor.name} className="w-16 h-16 object-cover rounded" />
+                  </td>
+                  <td className="font-semibold">{tutor.name}</td>
+                  <td>{tutor.language}</td>
+                  <td>${tutor.price}</td>
+                  <td>
+                    <div className="flex items-center gap-1">
+                      {tutor.review || 0}
+                      <IoIosStar color="#FFD700" />
+                    </div>
+                  </td>
+
+                  <td>
+                    <div className="tooltip tooltip-left" data-tip={tutor.description}>
+                      <span className="line-clamp-2 max-w-xs">{tutor.description.slice(0, 40)}...</span>
+                    </div>
+                  </td>
+                  <td>{tutor.tutorEmail}</td>
+                  <td>
+                    <button onClick={() => handleReview(tutor.tutorId)} className="btn btn-sm btn-outline btn-secondary">
+                      Review
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>

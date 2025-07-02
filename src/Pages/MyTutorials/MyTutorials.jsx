@@ -64,42 +64,50 @@ const MyTutorials = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="max-w-4xl mx-auto my-6 p-4 min-h-[100vh]">
+    <div className="max-w-6xl mx-auto my-10 px-4 min-h-[100vh]">
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">My Tutorials</h2>
 
       {myTutorials.length === 0 ? (
         <p className="text-center text-gray-500">No tutorials found.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-6">
-          {myTutorials.map((tutorial) => (
-            <div key={tutorial._id} className=" rounded-2xl shadow-lg overflow-hidden border flex flex-col md:flex-row">
-              <div className="w-full md:w-1/3 h-80">
-                <img src={tutorial.image} alt="Tutorial" className="w-full h-full object-cover" />
-              </div>
-
-              <div className="w-full md:w-2/3 p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-2">{tutorial.language}</h3>
-                  <p className=" mb-2">
-                    <span className="font-semibold">Price:</span> ${tutorial.price}
-                  </p>
-                  <p className=" mb-2">
-                    <span className="font-semibold">Reviews:</span> {tutorial.review}
-                  </p>
-                  <p className="">{tutorial.description}</p>
-                </div>
-
-                <div className="flex gap-3 mt-4 ">
-                  <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-sm btn-primary hover:bg-green-600">
-                    Update
-                  </Link>
-                  <button onClick={() => handleDelete(tutorial._id)} className="btn btn-sm btn-secondary hover:bg-red-600">
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="overflow-x-auto rounded-lg shadow border border-base-300">
+          <table className="table w-full">
+            <thead className="bg-base-200 text-base-content">
+              <tr>
+                <th className="text-left">Image</th>
+                <th>Language</th>
+                <th>Price</th>
+                <th>Review</th>
+                <th>Description</th>
+                <th className="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {myTutorials.map((tutorial) => (
+                <tr key={tutorial._id} className="hover:bg-base-100 border-t">
+                  <td className="p-3">
+                    <img src={tutorial.image} alt="Tutorial" className="w-20 h-16 rounded-md object-cover" />
+                  </td>
+                  <td className="font-semibold">{tutorial.language}</td>
+                  <td>${tutorial.price}</td>
+                  <td>{tutorial.review}</td>
+                  <td>
+                    <div className="tooltip tooltip-left" data-tip={tutorial.description}>
+                      <span className="line-clamp-2 max-w-xs">{tutorial.description.slice(0, 40)}...</span>
+                    </div>
+                  </td>
+                  <td className="text-center space-x-2">
+                    <Link to={`/update-tutorials/${tutorial._id}`} className="btn btn-xs btn-primary hover:bg-green-600">
+                      Update
+                    </Link>
+                    <button onClick={() => handleDelete(tutorial._id)} className="btn btn-xs btn-secondary hover:bg-red-600">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
