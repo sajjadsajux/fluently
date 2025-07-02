@@ -21,7 +21,7 @@ const AddTutorials = () => {
     const email = form.email.value;
     const image = form.image.value;
     const language = form.language.value;
-    const price = form.price.value;
+    const price = parseFloat(form.price.value);
     const description = form.description.value;
 
     const newTutorial = {

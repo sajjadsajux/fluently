@@ -35,9 +35,9 @@ const UpdateTutorials = () => {
     const email = form.email.value;
     const image = form.image.value;
     const language = form.language.value;
-    const price = form.price.value;
+    const price = parseFloat(form.price.value);
     const description = form.description.value;
-    const review = form.review.value;
+    const review = Number(form.review.value);
 
     const updatedTutorial = {
       name,

@@ -16,6 +16,7 @@ const FindTutors = () => {
   const params = new URLSearchParams(location.search);
   const category = params.get("category") || "";
   const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState(""); // "asc" or "desc"
 
   // console.log(search);
   useEffect(() => {
@@ -23,12 +24,17 @@ const FindTutors = () => {
 
     const query = search || category;
 
+    let url = `${import.meta.env.VITE_LOCAL_URL}/tutorials?searchQuery=${query}`;
+    if (sortOrder) {
+      url += `&sort=${sortOrder}`;
+    }
+
     axios
-      .get(`${import.meta.env.VITE_LOCAL_URL}/tutorials?searchQuery=${query}`)
+      .get(url)
       .then((res) => setTutors(res.data))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [search, category]);
+  }, [search, category, sortOrder]);
 
   SetTitle("All Tutors");
   if (loading) {
@@ -50,11 +56,18 @@ const FindTutors = () => {
             <input type="search" required placeholder="Search tutors" onChange={(e) => setSearch(e.target.value)} className="flex-1 outline-none bg-transparent " />
           </label>
         </div>
+        <div className="flex justify-end mb-6 px-4">
+          <select onChange={(e) => setSortOrder(e.target.value)} value={sortOrder} className="select select-bordered w-full max-w-xs">
+            <option value="">Sort by Price</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+          </select>
+        </div>
 
         {tutors.length === 0 ? (
           <p className="text-center  mt-20">No tutors found.</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-2 lg:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 px-2 xl:px-0">
             {tutors.map((tutor, index) => (
               <div key={index} className="card transform transition-all hover:shadow-2xl hover:-translate-y-1 rounded-2xl overflow-hidden border-2 border-gray-100 p-4 ">
                 <figure className="rounded-t-2xl overflow-hidden">
@@ -65,14 +78,17 @@ const FindTutors = () => {
                   <p className="mb-1 ">
                     <strong>Language:</strong> {tutor.language}
                   </p>
-                  <p className="mb-1 flex items-center gap-1">
+                  <p className="mb-1 ">
+                    <strong>Price:</strong> ${tutor.price}
+                  </p>
+                  {/* <p className="mb-1 flex items-center gap-1">
                     <strong>Reviews:</strong> {tutor.review || 0}
                     <span className="flex ml-1">
                       {[...Array(5)].map((_, i) => (
                         <IoIosStar key={i} color="#FFD700" size={20} />
                       ))}
                     </span>
-                  </p>
+                  </p> */}
 
                   <p className=" mb-4 ">{tutor.description?.slice(0, 100)}...</p>
                   <div className="card-actions">
