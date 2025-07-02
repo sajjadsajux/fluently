@@ -34,7 +34,7 @@ const StatsCount = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto my-10 px-2 md:px-0">
+    <div className="max-w-7xl mx-auto mb-16 px-2 md:px-0">
       <h2 className="text-4xl font-bold  mb-4 text-center  ">Our Impact So Far</h2>
       <div className="w-24 h-1 bg-primary mx-auto"></div>
 

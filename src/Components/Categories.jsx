@@ -21,7 +21,7 @@ const Categories = () => {
 
   return (
     <div>
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 mb-16">
         <h2 className="text-4xl font-bold  mb-4 text-center  ">Language Categories</h2>
         <div className="w-24 h-1 bg-primary mx-auto"></div>
 

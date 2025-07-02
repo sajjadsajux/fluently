@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import BannerSlider from "./BannerSlider";
 const Banner = () => {
   return (
-    <div className="w-full  px-2 md:px-0 mb-10">
+    <div className="w-full  px-2 md:px-0 mb-16">
       <div className="bg-primary rounded-2xl shadow-lg p-6 md:min-h-[70vh] flex items-center">
         <div className="container mx-auto flex flex-col lg:flex-row-reverse items-center gap-8">
           {/* Slider Section */}

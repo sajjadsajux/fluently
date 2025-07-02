@@ -103,7 +103,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-base-100/50 py-16 ">
+    <div className="bg-base-100/50 mb-16 ">
       <div className="max-w-7xl mx-auto px-8  ">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">What Our Students Say</h2>

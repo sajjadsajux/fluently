@@ -43,7 +43,7 @@ const FindTutors = () => {
   return (
     <>
       <div className="container mx-auto py-10 min-h-[100vh]">
-        <h2 className="text-4xl font-semibold text-center mb-12 text-primary">Find Your Perfect Tutor</h2>
+        <h2 className="text-3xl  text-center mb-12 text-primary  font-bold">Find Your Perfect Tutor</h2>
 
         <div className="flex justify-center mb-10 px-2 md:px-0">
           <label className="input flex items-center gap-2 p-3 rounded-full shadow-md w-full max-w-md">

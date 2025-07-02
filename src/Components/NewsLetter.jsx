@@ -9,7 +9,7 @@ const NewsLetter = () => {
     e.target.reset();
   };
   return (
-    <div className="bg-base-100 py-16">
+    <div className="bg-base-100 mb-16">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center">Subscribe to our newsletter</h2>
         <div className="w-24 h-1 bg-primary mx-auto my-5"></div>

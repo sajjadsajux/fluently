@@ -9,7 +9,7 @@ const AboutUs = () => {
   }, []);
   return (
     <section className="container mx-auto py-10 max-w-4xl text-base-content">
-      <h2 className="text-4xl font-semibold text-center mb-12 text-primary">About Us</h2>
+      <h2 className="text-3xl  text-center mb-12 text-primary  font-bold  ">About Us</h2>
 
       <p className="mb-4">Welcome to Fluently! We are passionate about connecting learners with expert tutors from around the world. Our platform provides flexible and personalized tutoring sessions designed to help you achieve your language learning goals quickly and confidently.</p>
 
