@@ -63,8 +63,8 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="flex">
               <span className="mr-2">Phone:</span>
-              <a href="tel:01629202095" className="hover:underline">
-                01629202095
+              <a href="tel:01820646469" className="hover:underline">
+                01820646469
               </a>
             </li>
             <li className="flex">
@@ -76,7 +76,7 @@ const Footer = () => {
             <li className="flex">
               <span className="mr-2">Address:</span>
               <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                312 Lovely Street, NY
+                Dhaka, Bangladesh
               </a>
             </li>
           </ul>
