@@ -32,7 +32,7 @@ const Categories = () => {
             <div
               key={cat.id}
               onClick={() => navigate(`/find-tutors?category=${encodeURIComponent(cat.title)}`)}
-              className="cursor-pointer flex items-center justify-between   shadow-lg rounded-xl p-6 hover:shadow-2xl transform hover:scale-105 transition-transform duration-300 border border-gray-400"
+              className="cursor-pointer flex items-center justify-between   shadow-lg rounded-xl p-6 hover:shadow-2xl transform hover:scale-105 transition-transform duration-300 border border-gray-400 "
             >
               <div className="flex items-center space-x-5">
                 <img src={cat.logo} alt={`${cat.title} flag`} className="w-14 h-14 rounded-full object-cover border-2 border-gray-300 " />

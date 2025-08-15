@@ -15,10 +15,9 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
   return (
-    <section className="container mx-auto py-10 min-h-screen px-4 md:px-0">
-      <h2 className="text-3xl text-center mb-12 text-primary font-bold">Contact Us</h2>
+    <section className="container mx-auto py-12 min-h-screen px-4 md:px-0">
+      <h2 className="text-4xl text-center mb-12 text-primary font-bold">Contact Us</h2>
 
       <div className="max-w-xl mx-auto my-8 p-4 rounded-xl shadow-2xl bg-gradient-to-br from-white via-gray-50 to-blue-50/30 border border-gray-200/50 backdrop-blur-sm relative overflow-hidden">
         {/* Subtle decorative elements */}
