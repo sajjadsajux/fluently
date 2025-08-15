@@ -57,7 +57,7 @@ const FaqPage = () => {
 
       <div className="space-y-4">
         {faqs.map((faq, idx) => (
-          <div key={idx} tabIndex={0} className="collapse collapse-arrow bg-base-200">
+          <div key={idx} tabIndex={0} className="collapse collapse-arrow bg-base-200 border-white border-2">
             <div className="collapse-title text-lg font-semibold">{faq.question}</div>
             <div className="collapse-content">
               <p>{faq.answer}</p>

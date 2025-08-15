@@ -120,7 +120,7 @@ const Testimonials = () => {
                   <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-primary" />
                   <div>
                     <p className="text-lg font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-primary">{testimonial.role}</p>
+                    <p className="text-sm text-primary ">{testimonial.role}</p>
                   </div>
                 </div>
 
